@@ -1,0 +1,27 @@
+{
+  "testplan": "Testplan.csv",
+  "features": "features.csv",
+  "file_name_sep": "-",
+  "fsID_pos": 0,
+  "classID_pos": 1,
+  "occurrenceID_pos": 2,
+  "sliceID_pos": 3,
+  "printevery": 50,
+  "n_fft": 8192,
+
+  "exp_name": "wabco",
+  "num_epochs": 150,
+  "learning_rate": 0.01,
+  "optimizer": "adam",
+  "batch_size": 10,
+  "validation_split": 0,
+  "verbose_training": true,
+  "checkpoint_monitor": "val_loss",
+  "checkpoint_mode": "min",
+  "checkpoint_save_best_only": true,
+  "checkpoint_save_weights_only": true,
+  "checkpoint_verbose": true,
+  "tensorboard_write_graph": true,
+  "tensorboard_log_dir": "experiments/wabco/logs",
+  "checkpoint_dir": "experiments/wabco/checkpoints"
+}

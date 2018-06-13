@@ -1,0 +1,28 @@
+{
+  "file_name_sep": "-",
+  "fsID_pos": 0,
+  "classID_pos": 1,
+  "occurrenceID_pos": 2,
+  "sliceID_pos": 3,
+  "printevery": 50,
+  "outDataPath": "experiments/urban_sound/data",
+  "csv_dir": "experiments/urban_sound/data",
+  "inDataPath": "E:\\AcousticalNN\\Samples\\Sorted\\Urban",
+  "n_fft": 8192,
+
+  "exp_name": "urban_sound",
+  "num_epochs": 100,
+  "learning_rate": 0.001,
+  "optimizer": "adam",
+  "batch_size": 2048,
+  "validation_split": 0.25,
+  "verbose_training": true,
+  "checkpoint_monitor": "val_loss",
+  "checkpoint_mode": "min",
+  "checkpoint_save_best_only": true,
+  "checkpoint_save_weights_only": true,
+  "checkpoint_verbose": true,
+  "tensorboard_write_graph": true,
+  "tensorboard_log_dir": "experiments/urban_sound/logs",
+  "checkpoint_dir": "experiments/urban_sound/checkpoints"
+}
