@@ -1,5 +1,5 @@
 {
-  "testplan": "Testplan.csv",
+  "testplan": "attributes.csv",
   "features": "features.csv",
   "file_name_sep": "-",
   "fsID_pos": 0,

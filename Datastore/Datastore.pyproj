@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Acoustical\" />
     <Folder Include="Acoustical\1_set\" />
+    <Folder Include="Acoustical\test\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Acoustical\1_set\0_Run000.Mik1.wav" />
@@ -370,7 +371,16 @@
     <Content Include="Acoustical\1_set\83_Run040.Mik2.wav" />
     <Content Include="Acoustical\1_set\8_Run004.Mik1.wav" />
     <Content Include="Acoustical\1_set\9_Run004.Mik2.wav" />
+    <Content Include="Acoustical\attributes.csv" />
     <Content Include="Acoustical\Testplan.csv" />
+    <Content Include="Acoustical\test\13_Run006.Mik2.wav" />
+    <Content Include="Acoustical\test\186_Run092.Mik1.wav" />
+    <Content Include="Acoustical\test\205_Run100_zweiter Versuch.Mik2.wav" />
+    <Content Include="Acoustical\test\225_Run109.Mik2.wav" />
+    <Content Include="Acoustical\test\237_Run115.Mik2.wav" />
+    <Content Include="Acoustical\test\249_Run121.Mik2.wav" />
+    <Content Include="Acoustical\test\250_Run122.Mik1.wav" />
+    <Content Include="Acoustical\test\25_Run012.Mik2.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

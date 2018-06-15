@@ -19,7 +19,7 @@ attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","R
 
 lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
         ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
-        ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, '20 km/h', 'x km/h',           # Geschwindigkeit
+        ,["80 km/h","50 km/h"]#,"30 km/h","40 km/h", '20 km/h', 'x km/h',           # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
         ,['PCB - Kein', 'PCB - Puschel','PCB - Kondom']#]                           # Mikrofon
         ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -35,52 +35,53 @@ class_attributes = ["Belag","Witterung"]
 identification = ["ID","frame"]
 ##################################################################################################################################
 
-sdl = SoundDataLoader("configs/wabco.json")
-currentDrive, path = os.path.splitdrive(os.getcwd())
-dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
-# SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
-#sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-samples = sdl.getFeaturesWithLabel(attr,lab)
+if __name__ ==  '__main__':
+    sdl = SoundDataLoader("configs/wabco.json")
+    currentDrive, path = os.path.splitdrive(os.getcwd())
+    dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+    # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
+    #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
+    samples = sdl.getFeaturesWithLabel(attr,lab)
     
-# Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
-train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+    # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+    train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
 
-class_attributes = ",".join(class_attributes)
-classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
+    class_attributes = ",".join(class_attributes)
+    classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
 
-clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
-clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+    clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+    clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
 
-# predict class and probability
-if ID is None:
-    p_samples = test.drop(columns=(identification+[class_attributes])).values
-else:
-    p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
-prediction = clf.predict(p_samples)
-probability = clf.predict_proba(p_samples)
-# /predict class and probability
+    # predict class and probability
+    if ID is None:
+        p_samples = test.drop(columns=(identification+[class_attributes])).values
+    else:
+        p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
+    prediction = clf.predict(p_samples)
+    probability = clf.predict_proba(p_samples)
+    # /predict class and probability
 
-# Confusion Matrix
-y_ = [class_names[int(p)] for p in prediction]
-if ID is None:
-    y_true = test[class_attributes].values
-else:
-    y_true = test[test.ID == ID][class_attributes].values
-cnf_matrix = confusion_matrix(y_true, y_, class_names)
-plt.figure()
-sdl.plot_confusion_matrix(cnf_matrix, classes=class_names,title='Confusion matrix, without normalization')
-plt.figure()
-sdl.plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,title='Normalized confusion matrix')
-# /confusion matrix
+    # Confusion Matrix
+    y_ = [class_names[int(p)] for p in prediction]
+    if ID is None:
+        y_true = test[class_attributes].values
+    else:
+        y_true = test[test.ID == ID][class_attributes].values
+    cnf_matrix = confusion_matrix(y_true, y_, class_names)
+    plt.figure()
+    sdl.plot_confusion_matrix(cnf_matrix, classes=class_names,title='Confusion matrix, without normalization')
+    plt.figure()
+    sdl.plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,title='Normalized confusion matrix')
+    # /confusion matrix
 
-# plot prediction boxplot
-fig,axs = plt.subplots(len(class_names)//2,2)
-ai2 = 0
-for ai, cn in enumerate(class_names):
-    #print(ai%2,int(ai2), cn)
-    idx = np.where(y_true==cn)
-    actualClassPrediction = probability[idx]
-    axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = class_names)
-    axs[int(ai2), ai%2].set_title(cn)
-    ai2+=0.5
-plt.show()
+    # plot prediction boxplot
+    fig,axs = plt.subplots(len(class_names)//2,2)
+    ai2 = 0
+    for ai, cn in enumerate(class_names):
+        #print(ai%2,int(ai2), cn)
+        idx = np.where(y_true==cn)
+        actualClassPrediction = probability[idx]
+        axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = class_names)
+        axs[int(ai2), ai%2].set_title(cn)
+        ai2+=0.5
+    plt.show()

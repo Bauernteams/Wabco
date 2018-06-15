@@ -9,9 +9,14 @@ from utils.config import process_config
 from utils.dirs import listdir
 import utils.utils as utils
 import matplotlib.pyplot as plt
-
 import soundfile as sf
 from scipy.io import wavfile
+import time
+
+## testing
+from multiprocessing import Pool, cpu_count
+##
+
 
 class SoundDataLoader(BaseDataLoader):
     def __init__(self, config="configs/urbanSound.json"):
@@ -105,13 +110,14 @@ class SoundDataLoader(BaseDataLoader):
                     frame[A] = self.getAttributeToFeatures(frame,A)
 
             # Bestimmen der attributes-Kombination mit den wenigsten Frames
+            
             frame[combinedAttributes] = self.combineAttributes(frame,attribute)
             frame = frame.drop(columns=att)
             
             class_counts = frame[combinedAttributes].value_counts()
             min_classCounts = min(class_counts)
             df_temp = pd.DataFrame()
-
+            
             for cA in frame[combinedAttributes].unique():
                 actualFrames = frame[frame[combinedAttributes]==cA]                        
                 # equalize IDs
@@ -178,6 +184,174 @@ class SoundDataLoader(BaseDataLoader):
         else:
             return df_temp.reset_index()#.drop(columns = attribute),_
     
+    def bad_equalize(self, frame, attribute="Belag", randomize=False, split_train_test=None):
+        # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
+        # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
+        # Am wenigsten frames gibt es von der Klasse (Asphalt, trocken): 1874 frames.
+        # Nach dem equalizen sind es also noch 55 * 1874 / 2784 = 36 frames (Zufällig ausgewählte, wenn randomize True. Sonst die ersten).
+        # Bei einem split_train_test=0.7 sind es nach dem split noch 36*7/10=25 frames im train und 11 frames im test DataFrame von der ID 170.
+        # Hierdurch wird verhindert, dass der Zufall beim .sample() einige IDs komplett entfernt.
+        attributes = attribute.copy()
+        if isinstance(attributes,list) and len(attributes) > 1: # Sind es mehrere Attribute? (bzw. eine Liste)
+            att1 = attributes[0]
+            att2 = attributes[1]
+            att = [att1,att2]
+            combinedAttributes = ",".join(att)
+            if len(attributes) > 2:
+                frame2 = self.equalize(frame, att,randomize=randomize, split_train_test=None)
+                return self.equalize(frame2, [combinedAttributes] + attributes[2:], randomize=randomize, split_train_test=split_train_test) ###
+
+            # alle Attribute in die Featureliste einfügen
+            for A in att:
+                if A not in frame:
+                    frame[A] = self.getAttributeToFeatures(frame,A)
+
+            # Bestimmen der attributes-Kombination mit den wenigsten Frames
+            
+            frame[combinedAttributes] = self.combineAttributes(frame,attribute)
+            frame = frame.drop(columns=att)
+            
+            class_counts = frame[combinedAttributes].value_counts()
+            min_classCounts = min(class_counts)
+            df_temp = pd.DataFrame()
+            
+            pcs = min(len(frame[combinedAttributes].unique()), cpu_count()-1)
+            pool = Pool(pcs)
+            cAs = [frame[combinedAttributes].unique()[i::pcs] for i in range(pcs)]
+            ti = time.time()
+            t = pool.map(self.multi, [[frame, min_classCounts, combinedAttributes, randomize, cA] for cA in cAs])
+            print(time.time() - ti)
+            df_temp = pd.concat(t, ignore_index=True)
+
+            #for cA in frame[combinedAttributes].unique():
+            #    actualFrames = frame[frame[combinedAttributes]==cA]                        
+            #    # equalize IDs
+            #    quot = min_classCounts/actualFrames.shape[0]
+            #    if quot <= 0.1:
+            #        print("\n","#" * 100)
+            #        print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+            #        print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
+            #        print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
+            #        print("#" * 100,"\n")
+            #    IDs = actualFrames.ID.unique()
+            #    for id in IDs:
+            #        if randomize:
+            #            df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0])))], 
+            #                                ignore_index=True)
+            #        else:
+            #            df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+            #                                ignore_index=True)
+
+        else: # ...ist nur ein attribute
+            df_temp = pd.DataFrame()            
+            if isinstance(attributes, list):
+                attributes = attributes[0]
+            frame[attributes] = self.getAttributeToFeatures(frame, attributes)
+            class_names = frame[attributes].unique()
+            min_classCounts = min(frame[attributes].value_counts())
+            for cn in class_names:
+                actualFrames = frame[frame[attributes]==cn]
+                        
+                # equalize IDs
+                quot = min_classCounts/actualFrames.shape[0]
+                if quot <= 0.1:
+                    print("\n","#" * 100)
+                    print("Warning: The class(",cn,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+                    print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
+                    print("Consider setting other Filter settings to reduce the amount of frames of the class(",cn,").")
+                    print("#" * 100,"\n")
+
+                IDs = actualFrames.ID.unique()
+                for id in IDs:
+                    if randomize:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(quot * actualFrames[actualFrames.ID == id].shape[0]))], 
+                                            ignore_index=True)
+                    else:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                            ignore_index=True)
+
+        if split_train_test is not None:
+            if split_train_test <= 0 or split_train_test > 1:
+                raise ValueError("split_train_test has to be a value (float) between 0 and 1")
+            
+            from sklearn.model_selection import train_test_split
+            train = pd.DataFrame()
+            test = pd.DataFrame()
+            IDs = df_temp.ID.unique()
+            for id in IDs:
+                tr, te = train_test_split(df_temp[df_temp.ID == id], test_size=(1-split_train_test) )
+                train = pd.concat((train, tr), ignore_index = True)
+                test = pd.concat((test, te), ignore_index = True)
+                
+            #return train.reset_index(), test.reset_index()
+            return train, test
+
+        else:
+            return df_temp.reset_index()#.drop(columns = attribute),_
+    
+    def multi(self, input):
+        frame, min_classCounts, combinedAttributes, randomize, cA = input
+        #print("\n\n\n\n\n############################\n############################\n############################\n############################\n############################\n\n\n\n")
+        actualFrames = frame[frame[combinedAttributes]==cA[0]]                        
+        # equalize IDs
+        quot = min_classCounts/actualFrames.shape[0]
+        if quot <= 0.1:
+            print("\n","#" * 100)
+            print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+            print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
+            print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
+            print("#" * 100,"\n")
+        IDs = actualFrames.ID.unique()
+        df_temp = []
+        for id in IDs:
+            if randomize:
+                df_temp.append(actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0]))))
+            else:
+                df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                    ignore_index=True)
+
+        return df_temp
+        
+    def old_multi(self, input):
+        frame, min_classCounts, combinedAttributes, randomize, cA = input
+        print("\n\n\n\n\n############################\n############################\n############################\n############################\n############################\n\n\n\n")
+        actualFrames = frame[frame[combinedAttributes]==cA[0]]                        
+        # equalize IDs
+        quot = min_classCounts/actualFrames.shape[0]
+        if quot <= 0.1:
+            print("\n","#" * 100)
+            print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+            print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
+            print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
+            print("#" * 100,"\n")
+        IDs = actualFrames.ID.unique()
+        df_temp = pd.DataFrame()
+        for id in IDs:
+            if randomize:
+                df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0])))], 
+                                    ignore_index=True)
+            else:
+                df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                    ignore_index=True)
+
+        return df_temp
+
+    def concatFrames(self, input):
+        #input = input[0] # Für Solocore
+        IDs_chunk, actualFrames, quot, min_classCounts, randomize = input
+        # Funktion um das concatten mehrkernfähig zu machen
+        df_temp = pd.DataFrame()
+        t = time.time()
+        for id in IDs_chunk:
+            if randomize:
+                df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0])))], 
+                                    ignore_index=True)
+            else:
+                df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                    ignore_index=True)
+        print(time.time()-t,"\ncopy")
+        return df_temp
+
     def getAttributeToFeatures(self, frame, attribute):
         return frame.ID.apply(lambda x: self.attributes[attribute][x])
 
@@ -225,17 +399,35 @@ class SoundDataLoader(BaseDataLoader):
         return frame[attributes].astype(str).apply(lambda x: sep.join(x), axis=1)
 
     def createFeatureFrame(self, path):
-        actualDataFolder = "1_set" 
-        features = pd.DataFrame()
-        for f in listdir(os.path.join(path,actualDataFolder)):
-            print(f)
-            #features = pd.concat((features, self.extractFeaturesFromAudio(os.path.join(path,"1_set",f))), ignore_index=True)#, copy=False)
-            newFeatures = self.extractFeaturesFromAudio(os.path.join(path,actualDataFolder,f))
-            newFeatures.insert(0, "frame", range(len(newFeatures)))
-            newFeatures.insert(0, "ID", f.split("_")[0])
-            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)
+        # Erstellen des Features-Dataframes.
+        # Nutzt (Anzahl der CPU-Kerne)-1 Kerne.
+        # Speichert das DataFrame unter dem in self.config.features hinterlegten Pfad.
+        pcs = cpu_count()-1
+        print("Using",pcs,"Cores....")
+        actualDataFolder = "1_set"
+        files = listdir(os.path.join(path,actualDataFolder))
+        chunks = [files[i::pcs] for i in range(pcs)]
+
+        pool = Pool(processes=pcs)
+
+        result = pool.map(self.combineExtractedFeaturesFromAudio, [[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
+
+        features = pd.concat(result, ignore_index=True)
         features.to_csv(os.path.join(path, self.config.features), sep=";")
 
+    def combineExtractedFeaturesFromAudio(self, input):
+        # Zusammenführen von mehreren Feature-Frames.
+        # Funktion wurde implementiert um das Zusammenzuführen mehrkernfähig zu machen (Siehe self.createFeatureFrame)
+        path = input[0]
+        files = input[1]
+        features = pd.DataFrame()
+        for f in files:
+            print(f)
+            newFeatures = self.extractFeaturesFromAudio(os.path.join(path,f))
+            newFeatures.insert(0, "frame", range(len(newFeatures)))
+            newFeatures.insert(0, "ID", f.split("_")[0])
+            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)        
+        return features
 
     def loadRawWithID(self,ID):
         path = "experiments\\Wabco\\data\\raw\\1_set"
