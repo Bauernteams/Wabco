@@ -6,7 +6,11 @@ import pandas as pd
 from utils.dirs import listdir
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
-a=8
+a=1
+
+PCA_components = 30
+ID = 11
+
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
     currentDrive, path = os.path.splitdrive(os.getcwd())
@@ -14,7 +18,7 @@ if __name__ ==  '__main__':
     attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
     lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
-            ,None#["80 km/h","50 km/h","30 km/h"]#,"40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
+            ,["80 km/h","50 km/h","30 km/h"]#,"40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
             ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -24,14 +28,12 @@ if __name__ ==  '__main__':
             ,None#[1,2,3,4]                                                             # Position
             ,None#['Oval', 'ESC-Kreisel', 'Fahrdynamikflaeche']
             ]
-    #class_attributes = ["Belag", "Witterung"]
+    class_attributes = ["Belag", "Witterung"]
     #class_attributes = ["Reifen","Reifendruck"]
-    class_attributes = ["Geschwindigkeit"]
+    #class_attributes = ["Geschwindigkeit"]
     identification = ["ID","frame","index"]
     
     if a == 1:
-        PCA_components = 5
-        ID = 11
         # Sounddatei gestückelt in den Classifier füttern
         # soll quasi das Mikrofon simulieren
 
@@ -59,10 +61,9 @@ if __name__ ==  '__main__':
         
         ###
         # Laden einer Audiodatei, zerstückeln in einzelne Teile und füttern in den Classifier
-        ID = 11
         audio,sr = sdl.loadRawWithID(ID)
         features = sdl.extractFeaturesFromAudio(audio, sr = sr)
-        features2 = sdl.features[sdl.features.ID == 11]
+        features2 = sdl.features[sdl.features.ID == ID]
         normalized = sc.transform(features.values)
         components = pca.transform(normalized)
         prediction = clf.predict(components)
@@ -151,7 +152,7 @@ if __name__ ==  '__main__':
         sc = StandardScaler()
         normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
         from sklearn.decomposition import PCA
-        pca = PCA(30)
+        pca = PCA(PCA_components)
         principalComponents = pca.fit_transform(normalized)
         print(pca.components_)
 
@@ -244,7 +245,7 @@ if __name__ ==  '__main__':
         sc = StandardScaler()
         normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
         from sklearn.decomposition import PCA
-        pca = PCA(5)
+        pca = PCA(PCA_components)
         principalComponents = pca.fit_transform(normalized)
 
         # Lernen mit SVM
@@ -319,8 +320,6 @@ if __name__ ==  '__main__':
         p.terminate()
 
     if a == 5:
-        PCA_components = 5
-        ID = 22
         # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten, anschließende einzelne Klassifizierung
         # von neu geladenen Audiodaten über die ID
         sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
@@ -420,55 +419,3 @@ if __name__ ==  '__main__':
         test["prediction"] = y_
         test[["ID", class_attributes, "prediction"]][test.correct == False]
         ##
-
-    from base.base_data_loader import BaseDataLoader
-    import warnings
-    import random
-    import os
-    import pandas as pd
-    import numpy as np
-    import librosa
-    from utils.config import process_config
-    from utils.dirs import listdir
-    import utils.utils as utils
-    import matplotlib.pyplot as plt
-    import soundfile as sf
-    from scipy.io import wavfile
-
-    ## testing
-    from multiprocessing import Pool
-
-    sdl.createFeatureFrame("D:\Programmierung\Repositories\Wabco\Datastore\Acoustical")
-
-    #def multi(b):
-    #    features = pd.DataFrame()
-    #    for f in b[2]:
-    #        print(f)
-    #        newFeatures = b[0].extractFeaturesFromAudio(os.path.join(b[1],f))
-    #        newFeatures.insert(0, "frame", range(len(newFeatures)))
-    #        newFeatures.insert(0, "ID", f.split("_")[0])
-    #        features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)
-        
-    #    return features
-
-    #def createFeatureFrame(sdl, path):
-    #    pcs = 6
-    #    actualDataFolder = "test"
-    #    files = listdir(os.path.join(path,actualDataFolder))
-    #    print(files)
-    #    fileCount = len(files)
-    #    chunks = [files[i::pcs] for i in range(pcs)]
-
-    #    pool = Pool(processes=pcs)
-    #    test = [[sdl, os.path.join(path,actualDataFolder), chunk] for chunk in chunks]
-
-    #    result = pool.map(multi, test)
-    
-    #    return result
-
-    #if __name__ ==  '__main__':
-    #    t = createFeatureFrame(sdl, "D:\\Programmierung\\Repositories\\Wabco\\Datastore\\Acoustical\\")
-    #    print(len(t))
-    #    together = pd.concat(t, ignore_index=True)
-    #    print(together, len(together))
-    #    print(together.shape)

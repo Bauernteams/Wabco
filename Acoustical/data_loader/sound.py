@@ -430,10 +430,11 @@ class SoundDataLoader(BaseDataLoader):
         return features
 
     def loadRawWithID(self,ID):
-        path = "experiments\\Wabco\\data\\raw\\1_set"
+        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+        path = os.path.join(dataFolder, "1_set")
         files = listdir(path)
         files_ID_dict = dict(zip([int(ID) for ID in [f.split("_")[0] for f in files]],files))
-        return librosa.load(os.path.join(path,files_ID_dict[ID]))
+        return librosa.load(os.path.join(path,files_ID_dict[ID]), sr=None)
 
     def Attr_to_class(self, frame, label="Belag"):
         if isinstance(label, list) and len(label) > 1:
