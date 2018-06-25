@@ -4,8 +4,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 from utils.dirs import listdir
+from sklearn.decomposition import PCA
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
 a=1
 
 PCA_components = 30
@@ -18,7 +22,7 @@ if __name__ ==  '__main__':
     attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
     lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
-            ,["80 km/h","50 km/h","30 km/h"]#,"40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
+            ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
             ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -26,51 +30,42 @@ if __name__ ==  '__main__':
             ,['Goodyear', 'Michelin']#, 'XYZ']                                          # Reifen
             ,None#['8 bar', '9 bar', '6 bar']                                           # Reifendruck
             ,None#[1,2,3,4]                                                             # Position
-            ,None#['Oval', 'ESC-Kreisel', 'Fahrdynamikflaeche']
+            ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']
             ]
     class_attributes = ["Belag", "Witterung"]
     #class_attributes = ["Reifen","Reifendruck"]
     #class_attributes = ["Geschwindigkeit"]
-    identification = ["ID","frame","index"]
+    identification = ["ID","frame"]
     
     if a == 1:
         # Sounddatei gestückelt in den Classifier füttern
         # soll quasi das Mikrofon simulieren
 
-        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
-
         #for f in listdir(dataFolder+"/processed/Features_filt"):
         #    sdl.loadFeature_csv(dataFolder+"/processed/Features_filt/"+f)
         samples = sdl.getFeaturesWithLabel(attr,lab)
         equalized = sdl.equalize(samples, class_attributes)
-
-        from sklearn.decomposition import PCA
-        pca = PCA(PCA_components)
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        from sklearn.model_selection import train_test_split
-        train, test = train_test_split(equalized)
-        normalized = sc.fit_transform(train.drop(columns=(identification + class_attributes)).values)
-        principalComponents = pca.fit_transform(normalized)
     
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability = True)
+        # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+
+        class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
+
+        clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
         
         ###
         # Laden einer Audiodatei, zerstückeln in einzelne Teile und füttern in den Classifier
         audio,sr = sdl.loadRawWithID(ID)
         features = sdl.extractFeaturesFromAudio(audio, sr = sr)
-        features2 = sdl.features[sdl.features.ID == ID]
-        normalized = sc.transform(features.values)
-        components = pca.transform(normalized)
-        prediction = clf.predict(components)
+        features_ID = sdl.features[sdl.features.ID == ID]
+        prediction = clf.predict(features_ID.drop(columns=(identification)))
+        from collections import Counter
         if len(prediction>1):
-            print("\nPREDICTION:\t", [class_names[int(p)] for p in prediction])
+            print("\nPREDICTION:\t", Counter([class_names[int(p)] for p in prediction]))
         else:
-            print("\nPREDICTION:\t", class_names[int(prediction)])
+            print("\nPREDICTION:\t", Counter(class_names[int(prediction)]))
      
     if a == 2:
         # Aufnahme des Audios vom Mikrofon und Plotten der frequenzen

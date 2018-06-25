@@ -430,6 +430,7 @@ class SoundDataLoader(BaseDataLoader):
         return features
 
     def loadRawWithID(self,ID):
+        currentDrive, path = os.path.splitdrive(os.getcwd())
         dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
         path = os.path.join(dataFolder, "1_set")
         files = listdir(path)
