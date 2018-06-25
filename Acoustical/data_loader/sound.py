@@ -402,7 +402,8 @@ class SoundDataLoader(BaseDataLoader):
         # Erstellen des Features-Dataframes.
         # Nutzt (Anzahl der CPU-Kerne)-1 Kerne.
         # Speichert das DataFrame unter dem in self.config.features hinterlegten Pfad.
-        pcs = cpu_count()-1
+        #pcs = cpu_count()-1
+        pcs = 1
         print("Using",pcs,"Cores....")
         actualDataFolder = "1_set"
         files = listdir(os.path.join(path,actualDataFolder))
@@ -411,6 +412,7 @@ class SoundDataLoader(BaseDataLoader):
         pool = Pool(processes=pcs)
 
         result = pool.map(self.combineExtractedFeaturesFromAudio, [[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
+        #result = self.combineExtractedFeaturesFromAudio([[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
 
         features = pd.concat(result, ignore_index=True)
         features.to_csv(os.path.join(path, self.config.features), sep=";")

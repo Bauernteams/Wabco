@@ -13,7 +13,7 @@ from sklearn.svm import SVC
 a=1
 
 PCA_components = 30
-ID = 11
+ID = 526
 
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
