@@ -13,16 +13,16 @@ from sklearn.svm import SVC
 a=1
 
 PCA_components = 30
-ID = 526
+ID = 11
 
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
     currentDrive, path = os.path.splitdrive(os.getcwd())
     dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-2]),"Datastore","Wabco Audio")
     attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
-    lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
+    lab = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
-            ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 - 80 km/h",                 # Geschwindigkeit
+            ,["80 km/h"]#,"50 km/h","30 km/h","40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
             ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -51,16 +51,19 @@ if __name__ ==  '__main__':
 
         class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-
+       
+        ttt = train.drop(columns=(identification+[class_attributes]))
+        print(ttt.head())
         clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
         clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
         
         ###
         # Laden einer Audiodatei, zerstückeln in einzelne Teile und füttern in den Classifier
-        audio,sr = sdl.loadRawWithID(ID)
+        #audio,sr = sdl.loadRawWithID(ID)
+        audio,sr = sdl.loadRawWithPath("Q:\\Repositories\\Wabco\\Datastore\\Acoustical\\test\\526_Malek_Samo.wav")
+        
         features = sdl.extractFeaturesFromAudio(audio, sr = sr)
-        features_ID = sdl.features[sdl.features.ID == ID]
-        prediction = clf.predict(features_ID.drop(columns=(identification)))
+        prediction = clf.predict(features.values)
         from collections import Counter
         if len(prediction>1):
             print("\nPREDICTION:\t", Counter([class_names[int(p)] for p in prediction]))

@@ -14,7 +14,7 @@ from sklearn.decomposition import PCA
 from sklearn.svm import SVC
 
 ################################################################################################################################
-ID = None # None für alle
+ID = 11 # None für alle
 attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
 
 lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag

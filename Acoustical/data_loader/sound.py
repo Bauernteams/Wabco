@@ -23,8 +23,11 @@ class SoundDataLoader(BaseDataLoader):
         if isinstance(config, str):
             config = process_config(config)
         super(SoundDataLoader, self).__init__(config)
+
+        # get the absolute path of the datastore
         currentDrive, path = os.path.splitdrive(os.getcwd())
         dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+
         self.attributes = pd.read_csv(os.path.join(dataFolder, self.config.testplan), sep=";")
         if not os.path.isfile(os.path.join(dataFolder, self.config.features)):
             print("features.csv not found...")
@@ -402,8 +405,7 @@ class SoundDataLoader(BaseDataLoader):
         # Erstellen des Features-Dataframes.
         # Nutzt (Anzahl der CPU-Kerne)-1 Kerne.
         # Speichert das DataFrame unter dem in self.config.features hinterlegten Pfad.
-        #pcs = cpu_count()-1
-        pcs = 1
+        pcs = cpu_count()-1
         print("Using",pcs,"Cores....")
         actualDataFolder = "1_set"
         files = listdir(os.path.join(path,actualDataFolder))
@@ -415,7 +417,7 @@ class SoundDataLoader(BaseDataLoader):
         #result = self.combineExtractedFeaturesFromAudio([[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
 
         features = pd.concat(result, ignore_index=True)
-        features.to_csv(os.path.join(path, self.config.features), sep=";")
+        features.to_csv(os.path.join(path, self.config.features), sep=";", index=False)
 
     def combineExtractedFeaturesFromAudio(self, input):
         # Zusammenführen von mehreren Feature-Frames.
@@ -428,7 +430,7 @@ class SoundDataLoader(BaseDataLoader):
             newFeatures = self.extractFeaturesFromAudio(os.path.join(path,f))
             newFeatures.insert(0, "frame", range(len(newFeatures)))
             newFeatures.insert(0, "ID", f.split("_")[0])
-            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)        
+            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)
         return features
 
     def loadRawWithID(self,ID):
@@ -437,7 +439,11 @@ class SoundDataLoader(BaseDataLoader):
         path = os.path.join(dataFolder, "1_set")
         files = listdir(path)
         files_ID_dict = dict(zip([int(ID) for ID in [f.split("_")[0] for f in files]],files))
-        return librosa.load(os.path.join(path,files_ID_dict[ID]), sr=None)
+        return sf.read(os.path.join(path,files_ID_dict[ID]))
+
+    def loadRawWithPath(self, path):
+        return sf.read(path)
+
 
     def Attr_to_class(self, frame, label="Belag"):
         if isinstance(label, list) and len(label) > 1:
