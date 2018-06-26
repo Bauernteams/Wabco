@@ -52,8 +52,6 @@ if __name__ ==  '__main__':
         class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
        
-        ttt = train.drop(columns=(identification+[class_attributes]))
-        print(ttt.head())
         clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
         clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
         
