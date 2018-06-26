@@ -10,7 +10,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
-a=1
+a=4
 
 PCA_components = 30
 ID = 11
@@ -130,98 +130,9 @@ if __name__ ==  '__main__':
 
         p.terminate()
     
-    if a == 3:
-        ID = None # None für alle
+    #if a == 3:
         # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
-        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
-        samples = sdl.getFeaturesWithLabel(attr,lab) 
-    
-        # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
-        # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
-        # Am wenigsten frames gibt es von der Klasse (Asphalt, trocken): 1874 frames.
-        # Nach dem equalizen sind es also noch 55 * 1874 / 2784 = 36 frames (Zufällig ausgewählte, wenn randomize True. Sonst die ersten).
-        # Bei einem split_train_test=0.7 sind es nach dem split noch 36*7/10=25 frames im train und 11 frames im test DataFrame von der ID 170.
-        # Hierdurch wird verhindert, dass der Zufall beim .sample() einige IDs komplett entfernt.
-        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
-
-        # Skalierung und PCA-Transformation
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
-        from sklearn.decomposition import PCA
-        pca = PCA(PCA_components)
-        principalComponents = pca.fit_transform(normalized)
-        print(pca.components_)
-
-
-        # Lernen mit SVM
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability=True)
-        classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
-        
-        # predict class
-        if ID is None:
-            x_  = sc.transform(test.drop(columns=(identification + class_attributes)).values)
-        else:
-            x_  = sc.transform(test[test["ID"] == ID].drop(columns=(identification + class_attributes)).values)
-        pc_ = pca.transform(x_)
-    
-        prediction = clf.predict(pc_)
-        # /predict class
-
-        # predict probability
-        if ID is None:
-            x2_  = sc.transform(test.drop(columns=(identification + class_attributes)).values)
-        else:
-            x2_  = sc.transform(test[test["ID"] == ID].drop(columns=(identification + class_attributes)).values)
-        pc2_ = pca.transform(x2_)
-        prediction2 = clf.predict_proba(pc2_)
-        #print(prediction2)
-        # /predict probablity
-
-        # Confusion Matrix
-        from sklearn.metrics import confusion_matrix
-        test["class"] = sdl.combineAttributes(test, class_attributes)
-        newcn = np.array([",".join(cn) for cn in class_names])
-    
-        if isinstance(class_attributes, list) and len(class_attributes)>1:
-            y_ = [",".join(class_names[int(p)]) for p in prediction]
-            test["class"] = sdl.combineAttributes(test, class_attributes)
-            newcn = np.array([",".join(cn) for cn in class_names])
-        else: 
-            y_ = [class_names[int(p)] for p in prediction]
-            test["class"] = test[class_attributes]
-            newcn = class_names
-
-        if ID is None:
-            y_true = test["class"].values
-        else:
-            y_true = test[test.ID == ID]["class"].values
-    
-        cnf_matrix = confusion_matrix(y_true, y_, newcn)
-        plt.figure()
-        sdl.plot_confusion_matrix(cnf_matrix, classes=newcn,
-                              title='Confusion matrix, without normalization')
-
-        plt.figure()
-        sdl.plot_confusion_matrix(cnf_matrix, classes=newcn, normalize=True,
-                              title='Normalized confusion matrix')
-
-        # /confusion matrix
-
-        # plot prediction boxplot
-        fig,axs = plt.subplots(len(newcn)//2,2)
-        ai2 = 0
-        for ai, cn in enumerate(newcn):
-            #print(ai%2,int(ai2), cn)
-            idx = np.where(y_true==cn)
-            actualClassPrediction = prediction2[idx]
-            axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = newcn)
-            axs[int(ai2), ai%2].set_title(cn)
-            ai2+=0.5
-        plt.show()
+        # VERSCHOBEN NACH main.py
     
     if a == 4:
         # SVM fitting über die Trainings- und Testdaten und anschließend aufnahme und prediction über MIKROFON
