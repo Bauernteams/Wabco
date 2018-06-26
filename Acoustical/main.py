@@ -12,14 +12,17 @@ from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
+from math import ceil
 
 ################################################################################################################################
-ID = 11 # None für alle
-attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
+ID = None # None für alle
+useOthersAsUnknown = True
 
-lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
-        ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
-        ,["80 km/h","50 km/h"]#,"30 km/h","40 km/h", '20 km/h', 'x km/h',           # Geschwindigkeit
+attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
+
+labels = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]      # Belag
+        ,["trocken","nass","feucht"]#,"nass/feucht]                                 # Witterung
+        ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 km/h", '20 km/h', 'x km/h', # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
         ,['PCB - Kein', 'PCB - Puschel','PCB - Kondom']#]                           # Mikrofon
         ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -37,20 +40,39 @@ identification = ["ID","frame"]
 
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
+    print("Data Loaded...")
+
     currentDrive, path = os.path.splitdrive(os.getcwd())
     dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
     # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
     #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-    samples = sdl.getFeaturesWithLabel(attr,lab)
+    samples = sdl.getFeaturesWithLabel(attributes,labels)
+    print("Attribute Filter executed...")
+        
+    if useOthersAsUnknown:
+        ####
+        ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
+        notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+        #changeIDs = range(6)
+        changeIDs = notUsedSamples.ID.unique()
+        for attribute in attributes:
+            sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
+        samples = sdl.features
+        print("Outfiltered samples renamed as unknown and loaded...")
+        ####
     
     # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
     train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+    print("Data equalized and splitted...")
 
     class_attributes = ",".join(class_attributes)
     classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
 
     clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+    print("Classification-Pipeline created...")
+
     clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+    print("Classifier trained...")
 
     # predict class and probability
     if ID is None:
@@ -59,6 +81,7 @@ if __name__ ==  '__main__':
         p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
     prediction = clf.predict(p_samples)
     probability = clf.predict_proba(p_samples)
+    print("Test-data predicted...")
     # /predict class and probability
 
     # Confusion Matrix
@@ -75,7 +98,7 @@ if __name__ ==  '__main__':
     # /confusion matrix
 
     # plot prediction boxplot
-    fig,axs = plt.subplots(len(class_names)//2,2)
+    fig,axs = plt.subplots(ceil(len(class_names)/2),2)
     ai2 = 0
     for ai, cn in enumerate(class_names):
         #print(ai%2,int(ai2), cn)

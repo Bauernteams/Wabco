@@ -22,7 +22,7 @@ if __name__ ==  '__main__':
     attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
     lab = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
-            ,["80 km/h"]#,"50 km/h","30 km/h","40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
+            ,["80 km/h","50 km/h","30 km/h","40 km/h", "0 km/h"]#, "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
             ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
@@ -137,10 +137,8 @@ if __name__ ==  '__main__':
     if a == 4:
         # SVM fitting über die Trainings- und Testdaten und anschließend aufnahme und prediction über MIKROFON
     
-        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
         samples = sdl.getFeaturesWithLabel(attr,lab)
-    
+
         # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
         # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
         # Am wenigsten frames gibt es von der Klasse (Asphalt, trocken): 1874 frames.
@@ -149,19 +147,14 @@ if __name__ ==  '__main__':
         # Hierdurch wird verhindert, dass der Zufall beim .sample() einige IDs komplett entfernt.
         train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
 
-        # Skalierung und PCA-Transformation
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
-        from sklearn.decomposition import PCA
-        pca = PCA(PCA_components)
-        principalComponents = pca.fit_transform(normalized)
-
-        # Lernen mit SVM
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability=True)
+        # Skalierung und PCA-Transformation -> Lernen mit SVM
+        class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
+
+        clf = make_pipeline(StandardScaler(), 
+                            PCA(n_components=PCA_components), 
+                            SVC(decision_function_shape="ovo", probability=True))
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
 
     
         """
@@ -175,7 +168,7 @@ if __name__ ==  '__main__':
         import matplotlib.pyplot as plt
         import time
 
-        CHUNK = 16384
+        CHUNK = 16384//2
 
         WIDTH = 2
         DTYPE = np.int16
@@ -183,10 +176,6 @@ if __name__ ==  '__main__':
 
         CHANNELS = 1
         RATE = 48000
-        RECORD_SECONDS = 20
-
-        j = np.complex(0,1)
-
 
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(WIDTH),
@@ -199,10 +188,10 @@ if __name__ ==  '__main__':
         print("* recording")
 
         # initialize sample buffer
-        buffer = np.zeros(CHUNK * 2)
+        buffer = np.zeros(CHUNK)
 
         #for i in np.arange(RATE / CHUNK * RECORD_SECONDS):
-        plt.ion()
+        from collections import Counter
         while True:
             # read audio
             string_audio_data = stream.read(CHUNK)
@@ -210,14 +199,12 @@ if __name__ ==  '__main__':
             normalized_data = audio_data / MAX_INT
 
             DF = sdl.extractFeaturesFromAudio(normalized_data)
-            x_  = sc.transform(DF.values)
-            pc_ = pca.transform(x_)
-            prediction = clf.predict(pc_)
+            prediction = clf.predict(DF.values)
             if len(prediction>1):
-                print("\nPREDICTION:\t", [class_names[int(p)] for p in prediction])
+                print("\nPREDICTION:\t", Counter([class_names[int(p)] for p in prediction]))
             else:
                 print("\nPREDICTION:\t", class_names[int(prediction)])
-            prediction2 = np.mean(clf.predict_proba(pc_), axis=0)
+            prediction2 = np.mean(clf.predict_proba(DF.values), axis=0)
             print(prediction2)
 
 

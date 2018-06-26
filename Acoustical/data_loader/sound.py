@@ -126,11 +126,11 @@ class SoundDataLoader(BaseDataLoader):
                 # equalize IDs
                 quot = min_classCounts/actualFrames.shape[0]
                 if quot <= 0.1:
-                    print("\n","#" * 100)
+                    print("\n","#" * 50)
                     print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
                     print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
-                    print("#" * 100,"\n")
+                    print("#" * 50,"\n")
                 IDs = actualFrames.ID.unique()
                 for id in IDs:
                     if randomize:
@@ -358,6 +358,9 @@ class SoundDataLoader(BaseDataLoader):
     def getAttributeToFeatures(self, frame, attribute):
         return frame.ID.apply(lambda x: self.attributes[attribute][x])
 
+    def changeLabel_ofIDs(self, IDs, attribute, label):
+        self.attributes[attribute][self.attributes.ID.isin(IDs)] = label
+
     def extractFeaturesFromAudio(self, audio, n_fft = 16384, sr=48000):
         #stft = librosa.stft(audio,n_fft=n_fft)
         #freqs = np.abs(stft)
@@ -443,7 +446,6 @@ class SoundDataLoader(BaseDataLoader):
 
     def loadRawWithPath(self, path):
         return sf.read(path)
-
 
     def Attr_to_class(self, frame, label="Belag"):
         if isinstance(label, list) and len(label) > 1:
