@@ -185,7 +185,7 @@ class SoundDataLoader(BaseDataLoader):
             return train, test
 
         else:
-            return df_temp.reset_index()#.drop(columns = attribute),_
+            return df_temp
     
     def bad_equalize(self, frame, attribute="Belag", randomize=False, split_train_test=None):
         # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.

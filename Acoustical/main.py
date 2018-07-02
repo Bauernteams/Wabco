@@ -15,9 +15,10 @@ from sklearn.svm import SVC
 from math import ceil
 
 ################################################################################################################################
-ID = None # None für alle
+ID = [332] # None für alle
 useOthersAsUnknown = False
 saveClassifier = True
+useClassifierID = -1
 
 attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
 
@@ -25,7 +26,7 @@ labels = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]  
         ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
         ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 km/h", '20 km/h', 'x km/h', # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
-        ,['PCB - Kein', 'PCB - Puschel','PCB - Kondom']#]                           # Mikrofon
+        ,['PCB - Kein','PCB - Kondom']#, 'PCB - Puschel']                           # Mikrofon
         ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
             # 'CAN aus', 'Beregnung an']
         ,None#['Goodyear', 'Michelin']#, 'XYZ']                                     # Reifen
@@ -49,8 +50,7 @@ if __name__ ==  '__main__':
     # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
     #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
     samples = sdl.getFeaturesWithLabel(attributes,labels)
-        
-
+               
     if useOthersAsUnknown:
         print("Renaming and loading outfiltered data as unknown...")
         ####
@@ -65,21 +65,37 @@ if __name__ ==  '__main__':
     
     # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
     print("Equalizing data and splitting in training- and test-data...")
-    train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
-
-    print("Creating classification-Pipeline...")
+    if ID is None:
+        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+    else:
+        if not samples.ID.isin(ID).any():
+            samples = pd.concat([samples, sdl.features[sdl.features.ID.isin(ID)]])
+        train = sdl.equalize(samples, class_attributes, randomize = True, split_train_test = None)
+        test = train[train.ID.isin(ID)]
+        train = train.drop(test.index.values)
+        
+    
     class_attributes = ",".join(class_attributes)
     classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-    clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
-    
-    print("Training Classifier...")
-    clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
 
-    print("Saving classifier...")
-    if saveClassifier:
-        # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+    if useClassifierID is None:
+        print("Creating classification-Pipeline...")
+        clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+    
+        print("Training Classifier...")
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+        
+        if saveClassifier:
+            print("Saving classifier...")
+            # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+            from sklearn.externals import joblib
+            joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+    else:
         from sklearn.externals import joblib
-        joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+        if useClassifierID == -1:
+            useClassifierID = getHighestFilenumber("classifier")
+        print("Loading Classifier-ID", useClassifierID)
+        clf = joblib.load(os.path.join("classifier", str(useClassifierID)+".pkl"))
 
     # predict class and probability
     print("Predicting Test-Data...")
