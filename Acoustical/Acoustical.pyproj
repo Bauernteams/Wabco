@@ -21,7 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Acoustical.py" />
     <Compile Include="base\base_data_loader.py" />
     <Compile Include="base\base_model.py" />
     <Compile Include="base\base_trainer.py" />
