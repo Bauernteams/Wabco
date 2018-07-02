@@ -41,6 +41,7 @@
     <Folder Include="base\" />
     <Folder Include="configs\" />
     <Folder Include="data_loader\" />
+    <Folder Include="classifier\" />
     <Folder Include="utils\" />
   </ItemGroup>
   <ItemGroup>
