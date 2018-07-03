@@ -13,10 +13,10 @@ from sklearn.svm import SVC
 a=3
 
 ################################################################################################################################
-ID = [339] # None für alle
+ID = None # None für alle
 useOthersAsUnknown = False
 saveClassifier = False
-useClassifierID = 9
+useClassifierID = None
 
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
