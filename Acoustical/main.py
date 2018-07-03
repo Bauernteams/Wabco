@@ -15,18 +15,18 @@ from sklearn.svm import SVC
 from math import ceil
 
 ################################################################################################################################
-ID = [332] # None für alle
-useOthersAsUnknown = False
+ID = None # None für alle
+useOthersAsUnknown = True
 saveClassifier = True
-useClassifierID = -1
+useClassifierID = None
 
 attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
 
-labels = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]      # Belag
+labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]      # Belag
         ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
         ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 km/h", '20 km/h', 'x km/h', # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
-        ,['PCB - Kein','PCB - Kondom']#, 'PCB - Puschel']                           # Mikrofon
+        ,['PCB - Kein','PCB - Kondom', 'PCB - Puschel']#]                           # Mikrofon
         ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
             # 'CAN aus', 'Beregnung an']
         ,None#['Goodyear', 'Michelin']#, 'XYZ']                                     # Reifen
@@ -34,6 +34,9 @@ labels = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]  
         ,None#[1,2,3,4]                                                             # Position
         ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']                            # Fahrbahn
         ]
+
+unknownAttributes = ["Geschwindigkeit"]
+unknownLabels = ["0 km/h"]
 class_attributes = ["Belag","Witterung"]
 #class_attributes = ["Reifen","Reifendruck"]
 #class_attributes = ["Mikrofon"]
@@ -55,12 +58,12 @@ if __name__ ==  '__main__':
         print("Renaming and loading outfiltered data as unknown...")
         ####
         ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
-        notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
-        #changeIDs = range(6)
-        changeIDs = notUsedSamples.ID.unique()
+        #notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+        asUnknownSamples = sdl.getFeaturesWithLabel(unknownAttributes,unknownLabels)
+        changeIDs = asUnknownSamples.ID.unique()
         for attribute in attributes:
             sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
-        samples = sdl.features
+        samples = pd.concat([samples, asUnknownSamples])
         ####
     
     # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze

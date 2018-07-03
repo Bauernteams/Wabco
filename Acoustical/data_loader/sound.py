@@ -119,6 +119,7 @@ class SoundDataLoader(BaseDataLoader):
             
             class_counts = frame[combinedAttributes].value_counts()
             min_classCounts = min(class_counts)
+            min_className = class_counts.index[np.where(class_counts == min_classCounts)]
             df_temp = pd.DataFrame()
             
             for cA in frame[combinedAttributes].unique():
@@ -127,7 +128,7 @@ class SoundDataLoader(BaseDataLoader):
                 quot = min_classCounts/actualFrames.shape[0]
                 if quot <= 0.1:
                     print("\n","#" * 50)
-                    print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+                    print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (", min_className, actualFrames.shape[0],"/",min_classCounts,").")
                     print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
                     print("#" * 50,"\n")
@@ -154,7 +155,7 @@ class SoundDataLoader(BaseDataLoader):
                 quot = min_classCounts/actualFrames.shape[0]
                 if quot <= 0.1:
                     print("\n","#" * 100)
-                    print("Warning: The class(",cn,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+                    print("Warning: The class(",cn,") has more than 10x the amount of frames availiable than the class with the lowest frameset (", min_className,actualFrames.shape[0],"/",min_classCounts,").")
                     print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cn,").")
                     print("#" * 100,"\n")

@@ -3,30 +3,31 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from utils.dirs import listdir
+from utils.dirs import listdir, getHighestFilenumber
 from sklearn.decomposition import PCA
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
-a=4
+a=3
 
-PCA_components = 30
-ID = 11
+################################################################################################################################
+ID = [339] # None für alle
+useOthersAsUnknown = False
+saveClassifier = False
+useClassifierID = 9
 
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
     currentDrive, path = os.path.splitdrive(os.getcwd())
     dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-2]),"Datastore","Wabco Audio")
-    attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
-    lab = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]         # Belag
+    attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Reifen","Reifendruck","Position","Fahrbahn"]
+    labels = [["Beton","Blaubasalt","Asphalt"]#,"Stahlbahn","Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
             ,["80 km/h","50 km/h","30 km/h","40 km/h", "0 km/h"]#, "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
-            ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
-                # 'CAN aus', 'Beregnung an']
             ,['Goodyear', 'Michelin']#, 'XYZ']                                          # Reifen
             ,None#['8 bar', '9 bar', '6 bar']                                           # Reifendruck
             ,None#[1,2,3,4]                                                             # Position
@@ -43,7 +44,7 @@ if __name__ ==  '__main__':
 
         #for f in listdir(dataFolder+"/processed/Features_filt"):
         #    sdl.loadFeature_csv(dataFolder+"/processed/Features_filt/"+f)
-        samples = sdl.getFeaturesWithLabel(attr,lab)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
         equalized = sdl.equalize(samples, class_attributes)
     
         # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
@@ -128,14 +129,125 @@ if __name__ ==  '__main__':
 
         p.terminate()
     
-    #if a == 3:
+    if a == 3:
+        # SVR (Regression) der Belagklassen, die durch einen Reibwert (0<R<1) ersetzt wurden.
+        
+        from sklearn.svm import SVR        
+        print("Loading Data...")
+        sdl = SoundDataLoader("configs/wabco.json")
+
+        print("Filtering Attributes...")
+        currentDrive, path = os.path.splitdrive(os.getcwd())
+        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
         # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
-        # VERSCHOBEN NACH main.py
+        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
+
+        ### Umwandlung Belag+Witterung in Reibwert:
+        # Platzhalter-Werte, richtige Werte müssen noch gefunden werden
+        trans = dict({"Asphalt"             : 0.9, 
+                      "Beton"               : 0.8, 
+                      "Blaubasalt"          : 0.5, 
+                      "Stahlbahn"           : 0.2,
+                      "Schlechtwegestrecke" : 0})
+
+        trans2 = dict({"trocken" : 1,
+                       "nass" : 2,
+                       "feucht" : 1,
+                       "nass/feucht": 1})
+        
+        sdl.attributes["Reibwert"] = sdl.attributes.apply(lambda b: trans[b["Belag"]]/trans2[b["Witterung"]], axis=1)
+        class_attributes = ["Reibwert"]
+        ###
+               
+        if useOthersAsUnknown:
+            print("Renaming and loading outfiltered data as unknown...")
+            ####
+            ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
+            notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+            #changeIDs = range(6)
+            changeIDs = notUsedSamples.ID.unique()
+            for attribute in attributes:
+                sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
+            samples = sdl.features
+            ####
     
+        # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+        print("Equalizing data and splitting in training- and test-data...")
+        if ID is None:
+            train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+        else:
+            if not samples.ID.isin(ID).any():
+                samples = pd.concat([samples, sdl.features[sdl.features.ID.isin(ID)]])
+            train = sdl.equalize(samples, class_attributes, randomize = True, split_train_test = None)
+            test = train[train.ID.isin(ID)]
+            train = train.drop(test.index.values)
+        
+    
+        class_attributes = ",".join(class_attributes)
+        classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
+
+        if useClassifierID is None:
+            print("Creating classification-Pipeline...")
+            clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVR())    
+            print("Training Classifier...")
+            Y = train.ID.apply(lambda id: sdl.attributes.Reibwert[sdl.attributes.ID == id].values)
+            X = train.drop(columns=(identification+[class_attributes]))
+            #clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+            clf.fit(X, Y)
+        
+            if saveClassifier:
+                print("Saving classifier...")
+                # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+                from sklearn.externals import joblib
+                joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+        else:
+            from sklearn.externals import joblib
+            if useClassifierID == -1:
+                useClassifierID = getHighestFilenumber("classifier")
+            print("Loading Classifier-ID", useClassifierID)
+            clf = joblib.load(os.path.join("classifier", str(useClassifierID)+".pkl"))
+
+        # predict class and probability
+        print("Predicting Test-Data...")
+        if ID is None:
+            p_samples = test.drop(columns=(identification+[class_attributes])).values
+        else:
+            p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
+        prediction = clf.predict(p_samples)
+        # /predict class and probability
+
+        # plot prediction boxplot
+        y_ = prediction
+        if ID is None:
+            y_true = test[class_attributes].values
+        else:
+            y_true = test[test.ID == ID][class_attributes].values
+        from math import ceil
+        lab = test[class_attributes].unique()
+        if len(lab)==1:
+            plt.title(["Reibwert:", str(lab)])
+            plt.axis([0.8,1.2,0,1])
+            plt.axhline(y=y_true[0])
+            plt.boxplot(prediction)
+        else:
+            fig,axs = plt.subplots(ceil(len(lab)/2),2, )
+            ai2 = 0
+            for ai, cn in enumerate(test[class_attributes].unique()):
+                #print(ai%2,int(ai2), cn)
+                idx = np.where(y_true==cn)
+                actualClassPrediction = prediction[idx]
+                axs[int(ai2), ai%2].boxplot(actualClassPrediction)
+                axs[int(ai2), ai%2].set_title(["Reibwert:" + str(cn)])
+                axs[int(ai2), ai%2].axis([0.8,1.2,0,1])
+                axs[int(ai2), ai%2].axhline(y=cn)
+                ai2+=0.5
+        plt.show()
+
     if a == 4:
         # SVM fitting über die Trainings- und Testdaten und anschließend aufnahme und prediction über MIKROFON
     
-        samples = sdl.getFeaturesWithLabel(attr,lab)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
 
         # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
         # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
@@ -218,7 +330,7 @@ if __name__ ==  '__main__':
         # von neu geladenen Audiodaten über die ID
         sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
 
-        samples = sdl.getFeaturesWithLabel(attr,lab)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
         equalized = sdl.equalize(samples, class_attributes)
 
         from sklearn.decomposition import PCA
