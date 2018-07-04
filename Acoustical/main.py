@@ -1,4 +1,4 @@
-# Last modified: 11.06.2018
+# Last modified: 04.07.2018
 
 from data_loader.sound import SoundDataLoader
 import os
@@ -16,8 +16,8 @@ from math import ceil
 
 ################################################################################################################################
 ID = None # None für alle
-useOthersAsUnknown = True
-saveClassifier = True
+useOthersAsUnknown = False
+saveClassifier = False
 useClassifierID = None
 
 attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
@@ -35,8 +35,9 @@ labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]  
         ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']                            # Fahrbahn
         ]
 
-unknownAttributes = ["Geschwindigkeit"]
-unknownLabels = ["0 km/h"]
+unknownAttributes   = ["Geschwindigkeit"]   # Attribute, in denen sich Unknown Labels befinden
+unknownLabels       = ["0 km/h"]            # Diese Labels werden als Unknown klassifiziert
+
 class_attributes = ["Belag","Witterung"]
 #class_attributes = ["Reifen","Reifendruck"]
 #class_attributes = ["Mikrofon"]
