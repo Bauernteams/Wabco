@@ -32,26 +32,26 @@ class SoundDataLoader(BaseDataLoader):
             self.createFeatureFrame(dataFolder)
 
         self.features = pd.read_csv(os.path.join(dataFolder, self.config.features), sep=";")
-        self.data = None
         pd.options.mode.chained_assignment = None  # default='warn'
             
-    def loadFeature_csv(self, path):
+    def loadFeature_fromCSV(self, filePath):
         """ Load the extracted Features from a .csv-File to the class attribute self.features. """
-        dataType = ".csv"
-        if not path.endswith(dataType):
-            print("File %s is NOT a %s file!" % path,dataType)
-            exit(0)
-        path = os.path.normpath(path)
-        pathSplit = path.split(os.sep)
-        fileID = pathSplit[-1].split("_")[0]
-        df_temp = pd.read_csv(path,";")
-        if not "frame" in df_temp.columns:
-            df_temp = df_temp.rename(columns={"Unnamed: 0":"frame"})
-        else:
-            df_temp = df_temp.drop(columns=["Unnamed: 0"])
-        self.features = utils.pdStackWithNone(self.features,df_temp,fileID)
 
-    def getFeaturesWithLabel(self, attribute, label):
+        fileType = ".csv"
+        if not filePath.endswith(fileType):
+            print("File %s is NOT a %s file!" % filePath,fileType)
+            exit(0)
+        filePath = os.path.normpath(filePath)
+        filePath_split = filePath.split(os.sep)
+        fileID = filePath_split[-1].split("_")[0]
+        features_temp_DF = pd.read_csv(filePath,";")
+        if not "frame" in features_temp_DF.columns:
+            features_temp_DF = features_temp_DF.rename(columns={"Unnamed: 0":"frame"})
+        else:
+            features_temp_DF = features_temp_DF.drop(columns=["Unnamed: 0"])
+        self.features = utils.pdStackWithNone(self.features,features_temp_DF,fileID)
+
+    def getFeaturesWithLabel(self, attributes, labels):
         """ Returns the Pandas-Frame with the features corresponding to the given attributes and labels. 
             
         Parameters
@@ -60,26 +60,22 @@ class SoundDataLoader(BaseDataLoader):
         label     : string or list, same length as ''attribute'' if list
         """
 
-
-        if not isinstance(attribute,list):
-            attribute = [attribute]
-        if not isinstance(label,list):
-            label = [label]
-
-        ID_list = None
+        # Umwandeln zu einer Liste um sowohl einzelne als auch mehrere Einträge bearbeiten zu können.
+        if not isinstance(attributes,list):
+            attributes = [attributes]
+        if not isinstance(labels,list):
+            labels = [labels]
+        
         temp_list = None
-        temp_list2 = None
-        for a,l in zip(attribute,label):
-            if not isinstance(l, list):
-                l = [l]
-            if l[0] is None:
-                l = self.attributes[a].unique()
-            ID_list = None
-            for ll in l:
-                if ID_list is None:
-                    ID_list = self.attributes.ID[self.attributes[a] == ll].values
-                else:
-                    ID_list = np.concatenate((ID_list,self.attributes.ID[self.attributes[a] == ll].values))
+        for attribute,label in zip(attributes,labels):
+            # sichergehen, dass label eine Liste ist, auch wenn nur ein Eintrag vorhanden ist, damit der restliche Code funktioniert.
+            if not isinstance(label, list):
+                label = [label]
+
+            if label[0] is None: # None heißt alle Labels dieses Attributs
+                label = self.attributes[attribute].unique()
+
+            ID_list = self.attributes.ID[self.attributes[attribute].isin(label)].values
             if temp_list is None:
                 temp_list = ID_list
             else:
@@ -102,7 +98,7 @@ class SoundDataLoader(BaseDataLoader):
             combinedAttributes = ",".join(att)
             if len(attributes) > 2:
                 frame2 = self.equalize(frame, att,randomize=randomize, split_train_test=None)
-                return self.equalize(frame2, [combinedAttributes] + attributes[2:], randomize=randomize, split_train_test=split_train_test) ###
+                return self.equalize(frame2, [combinedAttributes] + attributes[2:], randomize=randomize, split_train_test=split_train_test)
 
             # alle Attribute in die Featureliste einfügen
             for A in att:
@@ -129,13 +125,12 @@ class SoundDataLoader(BaseDataLoader):
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
                     print("#" * 100,"\n")
                 IDs = actualFrames.ID.unique()
-                for id in IDs:
-                    if randomize:
-                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0])))], 
-                                            ignore_index=True)
-                    else:
-                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
-                                            ignore_index=True)
+                if randomize:
+                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID.isin(IDs)].sample(int(round(quot * actualFrames[actualFrames.ID.isin(IDs)].shape[0])))], 
+                                        ignore_index=True)
+                else:
+                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.idxmax.isin(IDs)].head(min_classCounts)], 
+                                        ignore_index=True)
 
         else: # ...ist nur ein attribute
             df_temp = pd.DataFrame()            
@@ -157,26 +152,20 @@ class SoundDataLoader(BaseDataLoader):
                     print("#" * 100,"\n")
 
                 IDs = actualFrames.ID.unique()
-                for id in IDs:
-                    if randomize:
-                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(quot * actualFrames[actualFrames.ID == id].shape[0]))], 
-                                            ignore_index=True)
-                    else:
-                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
-                                            ignore_index=True)
+                if randomize:
+                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID.isin(IDs)].sample(int(round(quot * actualFrames[actualFrames.ID.isin(IDs)].shape[0])))], 
+                                        ignore_index=True)
+                else:
+                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.idxmax.isin(IDs)].head(min_classCounts)], 
+                                        ignore_index=True)
 
         if split_train_test is not None:
             if split_train_test <= 0 or split_train_test > 1:
                 raise ValueError("split_train_test has to be a value (float) between 0 and 1")
             
             from sklearn.model_selection import train_test_split
-            train = pd.DataFrame()
-            test = pd.DataFrame()
             IDs = df_temp.ID.unique()
-            for id in IDs:
-                tr, te = train_test_split(df_temp[df_temp.ID == id], test_size=(1-split_train_test) )
-                train = pd.concat((train, tr), ignore_index = True)
-                test = pd.concat((test, te), ignore_index = True)
+            train, test = train_test_split(df_temp[df_temp.ID.isin(IDs)], test_size=(1-split_train_test) )
                 
             #return train.reset_index(), test.reset_index()
             return train, test
