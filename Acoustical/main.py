@@ -1,27 +1,32 @@
-# Last modified: 11.06.2018
+# Last modified: 04.07.2018
 
 from data_loader.sound import SoundDataLoader
 import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from utils.dirs import listdir
+from utils.dirs import listdir, getHighestFilenumber
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
+from math import ceil
 
 ################################################################################################################################
 ID = None # None für alle
-attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
+useOthersAsUnknown = False
+saveClassifier = False
+useClassifierID = None
 
-lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
+attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
+
+labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]      # Belag
         ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
-        ,["80 km/h","50 km/h"]#,"30 km/h","40 km/h", '20 km/h', 'x km/h',           # Geschwindigkeit
+        ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 km/h", '20 km/h', 'x km/h', # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
-        ,['PCB - Kein', 'PCB - Puschel','PCB - Kondom']#]                           # Mikrofon
+        ,['PCB - Kein','PCB - Kondom', 'PCB - Puschel']#]                           # Mikrofon
         ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
             # 'CAN aus', 'Beregnung an']
         ,None#['Goodyear', 'Michelin']#, 'XYZ']                                     # Reifen
@@ -29,6 +34,10 @@ lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]     
         ,None#[1,2,3,4]                                                             # Position
         ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']                            # Fahrbahn
         ]
+
+unknownAttributes   = ["Geschwindigkeit"]   # Attribute, in denen sich Unknown Labels befinden
+unknownLabels       = ["0 km/h"]            # Diese Labels werden als Unknown klassifiziert
+
 class_attributes = ["Belag","Witterung"]
 #class_attributes = ["Reifen","Reifendruck"]
 #class_attributes = ["Mikrofon"]
@@ -36,23 +45,64 @@ identification = ["ID","frame"]
 ##################################################################################################################################
 
 if __name__ ==  '__main__':
+    print("Loading Data...")
     sdl = SoundDataLoader("configs/wabco.json")
+
+    print("Filtering Attributes...")
     currentDrive, path = os.path.splitdrive(os.getcwd())
     dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
     # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
     #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-    samples = sdl.getFeaturesWithLabel(attr,lab)
+    samples = sdl.getFeaturesWithLabel(attributes,labels)
+               
+    if useOthersAsUnknown:
+        print("Renaming and loading outfiltered data as unknown...")
+        ####
+        ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
+        #notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+        asUnknownSamples = sdl.getFeaturesWithLabel(unknownAttributes,unknownLabels)
+        changeIDs = asUnknownSamples.ID.unique()
+        for attribute in attributes:
+            sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
+        samples = pd.concat([samples, asUnknownSamples])
+        ####
     
     # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
-    train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
-
+    print("Equalizing data and splitting in training- and test-data...")
+    if ID is None:
+        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+    else:
+        if not samples.ID.isin(ID).any():
+            samples = pd.concat([samples, sdl.features[sdl.features.ID.isin(ID)]])
+        train = sdl.equalize(samples, class_attributes, randomize = True, split_train_test = None)
+        test = train[train.ID.isin(ID)]
+        train = train.drop(test.index.values)
+        
+    
     class_attributes = ",".join(class_attributes)
     classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
 
-    clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
-    clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+    if useClassifierID is None:
+        print("Creating classification-Pipeline...")
+        clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+    
+        print("Training Classifier...")
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+        
+        if saveClassifier:
+            print("Saving classifier...")
+            # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+            from sklearn.externals import joblib
+            joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+    else:
+        from sklearn.externals import joblib
+        if useClassifierID == -1:
+            useClassifierID = getHighestFilenumber("classifier")
+        print("Loading Classifier-ID", useClassifierID)
+        clf = joblib.load(os.path.join("classifier", str(useClassifierID)+".pkl"))
 
     # predict class and probability
+    print("Predicting Test-Data...")
     if ID is None:
         p_samples = test.drop(columns=(identification+[class_attributes])).values
     else:
@@ -75,7 +125,7 @@ if __name__ ==  '__main__':
     # /confusion matrix
 
     # plot prediction boxplot
-    fig,axs = plt.subplots(len(class_names)//2,2)
+    fig,axs = plt.subplots(ceil(len(class_names)/2),2)
     ai2 = 0
     for ai, cn in enumerate(class_names):
         #print(ai%2,int(ai2), cn)

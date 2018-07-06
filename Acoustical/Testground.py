@@ -3,73 +3,71 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from utils.dirs import listdir
+from utils.dirs import listdir, getHighestFilenumber
+from sklearn.decomposition import PCA
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
-a=8
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+a=3
+
+################################################################################################################################
+ID = None # None für alle
+useOthersAsUnknown = False
+saveClassifier = False
+useClassifierID = None
+
 if __name__ ==  '__main__':
     sdl = SoundDataLoader("configs/wabco.json")
     currentDrive, path = os.path.splitdrive(os.getcwd())
     dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-2]),"Datastore","Wabco Audio")
-    attr = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
-    lab = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
+    attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Reifen","Reifendruck","Position","Fahrbahn"]
+    labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]         # Belag
             ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
-            ,None#["80 km/h","50 km/h","30 km/h"]#,"40 km/h", "0 - 80 km/h",                 # Geschwindigkeit
+            ,["80 km/h","50 km/h","30 km/h","40 km/h", "0 km/h"]#, "0 - 80 km/h",                 # Geschwindigkeit
                 # '80 - 0 km/h', '50 - 0 km/h', '40 - 0 km/h', '20 km/h', 'x km/h']         
             ,None#['PCB - Kein', 'PCB - Puschel','PCB - Kondom']                        # Mikrofon
-            ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
-                # 'CAN aus', 'Beregnung an']
             ,['Goodyear', 'Michelin']#, 'XYZ']                                          # Reifen
-            ,None#['8 bar', '9 bar', '6 bar']                                           # Reifendruck
+            ,['8 bar', '9 bar', '6 bar']#  ]                                         # Reifendruck
             ,None#[1,2,3,4]                                                             # Position
-            ,None#['Oval', 'ESC-Kreisel', 'Fahrdynamikflaeche']
+            ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']
             ]
-    #class_attributes = ["Belag", "Witterung"]
+    class_attributes = ["Belag", "Witterung", "Geschwindigkeit"]
     #class_attributes = ["Reifen","Reifendruck"]
-    class_attributes = ["Geschwindigkeit"]
-    identification = ["ID","frame","index"]
+    #class_attributes = ["Geschwindigkeit"]
+    identification = ["ID","frame"]
     
     if a == 1:
-        PCA_components = 5
-        ID = 11
         # Sounddatei gestückelt in den Classifier füttern
         # soll quasi das Mikrofon simulieren
 
-        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
-
         #for f in listdir(dataFolder+"/processed/Features_filt"):
         #    sdl.loadFeature_csv(dataFolder+"/processed/Features_filt/"+f)
-        samples = sdl.getFeaturesWithLabel(attr,lab)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
         equalized = sdl.equalize(samples, class_attributes)
-
-        from sklearn.decomposition import PCA
-        pca = PCA(PCA_components)
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        from sklearn.model_selection import train_test_split
-        train, test = train_test_split(equalized)
-        normalized = sc.fit_transform(train.drop(columns=(identification + class_attributes)).values)
-        principalComponents = pca.fit_transform(normalized)
     
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability = True)
+        # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+
+        class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
+       
+        clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
         
         ###
         # Laden einer Audiodatei, zerstückeln in einzelne Teile und füttern in den Classifier
-        ID = 11
-        audio,sr = sdl.loadRawWithID(ID)
+        #audio,sr = sdl.loadRawWithID(ID)
+        audio,sr = sdl.loadRawWithPath("Q:\\Repositories\\Wabco\\Datastore\\Acoustical\\test\\526_Malek_Samo.wav")
+        
         features = sdl.extractFeaturesFromAudio(audio, sr = sr)
-        features2 = sdl.features[sdl.features.ID == 11]
-        normalized = sc.transform(features.values)
-        components = pca.transform(normalized)
-        prediction = clf.predict(components)
+        prediction = clf.predict(features.values)
+        from collections import Counter
         if len(prediction>1):
-            print("\nPREDICTION:\t", [class_names[int(p)] for p in prediction])
+            print("\nPREDICTION:\t", Counter([class_names[int(p)] for p in prediction]))
         else:
-            print("\nPREDICTION:\t", class_names[int(prediction)])
+            print("\nPREDICTION:\t", Counter(class_names[int(prediction)]))
      
     if a == 2:
         # Aufnahme des Audios vom Mikrofon und Plotten der frequenzen
@@ -132,105 +130,127 @@ if __name__ ==  '__main__':
         p.terminate()
     
     if a == 3:
-        ID = None # None für alle
+        # SVR (Regression) der Belagklassen, die durch einen Reibwert (0<R<1) ersetzt wurden.
+        
+        from sklearn.svm import SVR        
+        print("Loading Data...")
+        sdl = SoundDataLoader("configs/wabco.json")
+
+        print("Filtering Attributes...")
+        currentDrive, path = os.path.splitdrive(os.getcwd())
+        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
         # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
         #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
-        samples = sdl.getFeaturesWithLabel(attr,lab) 
-    
-        # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
-        # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
-        # Am wenigsten frames gibt es von der Klasse (Asphalt, trocken): 1874 frames.
-        # Nach dem equalizen sind es also noch 55 * 1874 / 2784 = 36 frames (Zufällig ausgewählte, wenn randomize True. Sonst die ersten).
-        # Bei einem split_train_test=0.7 sind es nach dem split noch 36*7/10=25 frames im train und 11 frames im test DataFrame von der ID 170.
-        # Hierdurch wird verhindert, dass der Zufall beim .sample() einige IDs komplett entfernt.
-        train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
 
-        # Skalierung und PCA-Transformation
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
-        from sklearn.decomposition import PCA
-        pca = PCA(30)
-        principalComponents = pca.fit_transform(normalized)
-        print(pca.components_)
+        ### Umwandlung Belag+Witterung in Reibwert:
+        # Platzhalter-Werte, richtige Werte müssen noch gefunden werden
+        trans = dict({"Asphalt"             : 0.9, 
+                      "Beton"               : 0.8, 
+                      "Blaubasalt"          : 0.5, 
+                      "Stahlbahn"           : 0.2,
+                      "Schlechtwegestrecke" : 0})
 
-
-        # Lernen mit SVM
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability=True)
-        classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
+        trans2 = dict({"trocken" : 1,
+                       "nass" : 2,
+                       "feucht" : 1,
+                       "nass/feucht": 1})
         
-        # predict class
-        if ID is None:
-            x_  = sc.transform(test.drop(columns=(identification + class_attributes)).values)
-        else:
-            x_  = sc.transform(test[test["ID"] == ID].drop(columns=(identification + class_attributes)).values)
-        pc_ = pca.transform(x_)
+        sdl.attributes["Reibwert"] = sdl.attributes.apply(lambda b: trans[b["Belag"]]/trans2[b["Witterung"]], axis=1)
+        class_attributes = ["Reibwert"]
+        ###
+        
+        
+        ### Nicht verwendete Soundfiles benutzen als "Unbekannt":
+        if useOthersAsUnknown:
+            print("Renaming and loading outfiltered data as unknown...")
+            ####
+            ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
+            notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+            #changeIDs = range(6)
+            changeIDs = notUsedSamples.ID.unique()
+            for attribute in attributes:
+                sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
+            samples = sdl.features
+        ###
     
-        prediction = clf.predict(pc_)
-        # /predict class
-
-        # predict probability
+        # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+        print("Equalizing data and splitting in training- and test-data...")
         if ID is None:
-            x2_  = sc.transform(test.drop(columns=(identification + class_attributes)).values)
+            train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
         else:
-            x2_  = sc.transform(test[test["ID"] == ID].drop(columns=(identification + class_attributes)).values)
-        pc2_ = pca.transform(x2_)
-        prediction2 = clf.predict_proba(pc2_)
-        #print(prediction2)
-        # /predict probablity
-
-        # Confusion Matrix
-        from sklearn.metrics import confusion_matrix
-        test["class"] = sdl.combineAttributes(test, class_attributes)
-        newcn = np.array([",".join(cn) for cn in class_names])
+            if not samples.ID.isin(ID).any():
+                samples = pd.concat([samples, sdl.features[sdl.features.ID.isin(ID)]])
+            train = sdl.equalize(samples, class_attributes, randomize = True, split_train_test = None)
+            test = train[train.ID.isin(ID)]
+            train = train.drop(test.index.values)
+        
     
-        if isinstance(class_attributes, list) and len(class_attributes)>1:
-            y_ = [",".join(class_names[int(p)]) for p in prediction]
-            test["class"] = sdl.combineAttributes(test, class_attributes)
-            newcn = np.array([",".join(cn) for cn in class_names])
-        else: 
-            y_ = [class_names[int(p)] for p in prediction]
-            test["class"] = test[class_attributes]
-            newcn = class_names
+        class_attributes = ",".join(class_attributes)
+        classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
 
+        if useClassifierID is None:
+            print("Creating classification-Pipeline...")
+            clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVR())    
+            print("Training Classifier...")
+            Y = train.ID.apply(lambda id: sdl.attributes.Reibwert[sdl.attributes.ID == id].values)
+            X = train.drop(columns=(identification+[class_attributes]))
+            #clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+            clf.fit(X, Y)
+        
+            if saveClassifier:
+                print("Saving classifier...")
+                # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+                from sklearn.externals import joblib
+                joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+        else:
+            from sklearn.externals import joblib
+            if useClassifierID == -1:
+                useClassifierID = getHighestFilenumber("classifier")
+            print("Loading Classifier-ID", useClassifierID)
+            clf = joblib.load(os.path.join("classifier", str(useClassifierID)+".pkl"))
+
+        # predict class and probability
+        print("Predicting Test-Data...")
         if ID is None:
-            y_true = test["class"].values
+            p_samples = test.drop(columns=(identification+[class_attributes])).values
         else:
-            y_true = test[test.ID == ID]["class"].values
-    
-        cnf_matrix = confusion_matrix(y_true, y_, newcn)
-        plt.figure()
-        sdl.plot_confusion_matrix(cnf_matrix, classes=newcn,
-                              title='Confusion matrix, without normalization')
-
-        plt.figure()
-        sdl.plot_confusion_matrix(cnf_matrix, classes=newcn, normalize=True,
-                              title='Normalized confusion matrix')
-
-        # /confusion matrix
+            p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
+        prediction = clf.predict(p_samples)
+        # /predict class and probability
 
         # plot prediction boxplot
-        fig,axs = plt.subplots(len(newcn)//2,2)
-        ai2 = 0
-        for ai, cn in enumerate(newcn):
-            #print(ai%2,int(ai2), cn)
-            idx = np.where(y_true==cn)
-            actualClassPrediction = prediction2[idx]
-            axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = newcn)
-            axs[int(ai2), ai%2].set_title(cn)
-            ai2+=0.5
+        y_ = prediction
+        if ID is None:
+            y_true = test[class_attributes].values
+        else:
+            y_true = test[test.ID == ID][class_attributes].values
+        from math import ceil
+        lab = test[class_attributes].unique()
+        if len(lab)==1:
+            plt.title(["Reibwert:", str(lab)])
+            plt.axis([0.8,1.2,0,1])
+            plt.axhline(y=y_true[0])
+            plt.boxplot(prediction)
+        else:
+            fig,axs = plt.subplots(ceil(len(lab)/2),2, )
+            ai2 = 0
+            for ai, cn in enumerate(test[class_attributes].unique()):
+                #print(ai%2,int(ai2), cn)
+                idx = np.where(y_true==cn)
+                actualClassPrediction = prediction[idx]
+                axs[int(ai2), ai%2].boxplot(actualClassPrediction)
+                axs[int(ai2), ai%2].set_title(["Reibwert:" + str(cn)])
+                axs[int(ai2), ai%2].axis([0.8,1.2,0,1])
+                axs[int(ai2), ai%2].axhline(y=cn)
+                ai2+=0.5
         plt.show()
-    
+
     if a == 4:
         # SVM fitting über die Trainings- und Testdaten und anschließend aufnahme und prediction über MIKROFON
     
-        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
-        sdl.loadFeature_csv(dataFolder+"/processed/features_NB.csv")
-        samples = sdl.getFeaturesWithLabel(attr,lab)
-    
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
+
         # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
         # Bsp.: ID 170 (Beton, nass) besteht aus 55 frames. Insgesamt gibt es von der Klasse (Beton, nass) 2784 frames.
         # Am wenigsten frames gibt es von der Klasse (Asphalt, trocken): 1874 frames.
@@ -239,19 +259,14 @@ if __name__ ==  '__main__':
         # Hierdurch wird verhindert, dass der Zufall beim .sample() einige IDs komplett entfernt.
         train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
 
-        # Skalierung und PCA-Transformation
-        from sklearn.preprocessing import StandardScaler
-        sc = StandardScaler()
-        normalized = sc.fit_transform(train.drop(columns=(identification+class_attributes)).values)
-        from sklearn.decomposition import PCA
-        pca = PCA(5)
-        principalComponents = pca.fit_transform(normalized)
-
-        # Lernen mit SVM
-        from sklearn import svm
-        clf = svm.SVC(decision_function_shape="ovo", probability=True)
+        # Skalierung und PCA-Transformation -> Lernen mit SVM
+        class_attributes = ",".join(class_attributes)
         classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
-        clf.fit(principalComponents, classes_list)
+
+        clf = make_pipeline(StandardScaler(), 
+                            PCA(n_components=PCA_components), 
+                            SVC(decision_function_shape="ovo", probability=True))
+        clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
 
     
         """
@@ -265,7 +280,7 @@ if __name__ ==  '__main__':
         import matplotlib.pyplot as plt
         import time
 
-        CHUNK = 16384
+        CHUNK = 16384//2
 
         WIDTH = 2
         DTYPE = np.int16
@@ -273,10 +288,6 @@ if __name__ ==  '__main__':
 
         CHANNELS = 1
         RATE = 48000
-        RECORD_SECONDS = 20
-
-        j = np.complex(0,1)
-
 
         p = pyaudio.PyAudio()
         stream = p.open(format=p.get_format_from_width(WIDTH),
@@ -289,10 +300,10 @@ if __name__ ==  '__main__':
         print("* recording")
 
         # initialize sample buffer
-        buffer = np.zeros(CHUNK * 2)
+        buffer = np.zeros(CHUNK)
 
         #for i in np.arange(RATE / CHUNK * RECORD_SECONDS):
-        plt.ion()
+        from collections import Counter
         while True:
             # read audio
             string_audio_data = stream.read(CHUNK)
@@ -300,14 +311,12 @@ if __name__ ==  '__main__':
             normalized_data = audio_data / MAX_INT
 
             DF = sdl.extractFeaturesFromAudio(normalized_data)
-            x_  = sc.transform(DF.values)
-            pc_ = pca.transform(x_)
-            prediction = clf.predict(pc_)
+            prediction = clf.predict(DF.values)
             if len(prediction>1):
-                print("\nPREDICTION:\t", [class_names[int(p)] for p in prediction])
+                print("\nPREDICTION:\t", Counter([class_names[int(p)] for p in prediction]))
             else:
                 print("\nPREDICTION:\t", class_names[int(prediction)])
-            prediction2 = np.mean(clf.predict_proba(pc_), axis=0)
+            prediction2 = np.mean(clf.predict_proba(DF.values), axis=0)
             print(prediction2)
 
 
@@ -319,13 +328,11 @@ if __name__ ==  '__main__':
         p.terminate()
 
     if a == 5:
-        PCA_components = 5
-        ID = 22
         # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten, anschließende einzelne Klassifizierung
         # von neu geladenen Audiodaten über die ID
         sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
 
-        samples = sdl.getFeaturesWithLabel(attr,lab)
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
         equalized = sdl.equalize(samples, class_attributes)
 
         from sklearn.decomposition import PCA
@@ -401,74 +408,129 @@ if __name__ ==  '__main__':
         all_features.to_csv("experiments\\Wabco\\data\\processed\\features_NB.csv",";")
     
     if a == 7:
-        t = pd.DataFrame()
-        t["B"] = sdl.getAttributeToFeatures(samples, "Belag")
-        t["W"] = sdl.getAttributeToFeatures(samples, "Witterung")
-        t["G"] = sdl.getAttributeToFeatures(samples, "Geschwindigkeit")
-        t["R"] = sdl.getAttributeToFeatures(samples, "Reifen")
-        t["Rd"] = sdl.getAttributeToFeatures(samples, "Reifendruck")
-        t["P"] = sdl.getAttributeToFeatures(samples, "Position")
-        t["M"] = sdl.getAttributeToFeatures(samples, "Mikrofon")
+        test = pd.DataFrame()
+        test["B"] = sdl.getAttributeToFeatures(samples, "Belag")
+        test["W"] = sdl.getAttributeToFeatures(samples, "Witterung")
+        test["G"] = sdl.getAttributeToFeatures(samples, "Geschwindigkeit")
+        test["R"] = sdl.getAttributeToFeatures(samples, "Reifen")
+        test["Rd"] = sdl.getAttributeToFeatures(samples, "Reifendruck")
+        test["P"] = sdl.getAttributeToFeatures(samples, "Position")
+        test["M"] = sdl.getAttributeToFeatures(samples, "Mikrofon")
+        test["ID"] = sdl.getAttributeToFeatures(samples, "ID")
 
-        sdl.combineAttributes(t, ["B","W"]).value_counts()
-        t["B,W"] = sdl.combineAttributes(t, ["B","W"])
-        t["B,W,G"] = sdl.combineAttributes(t, ["B,W","G"])
+        sdl.combineAttributes(test, ["B","W"]).value_counts()
+        test["B,W"] = sdl.combineAttributes(test, ["B","W"])
+        test["B,W,G"] = sdl.combineAttributes(test, ["B,W","G"])
+        test["B,W,G"].value_counts()
 
-        # Nützliche Pandas Befehle
-        ## Überprüfung, welche IDs falsch klassifiziert wurden und womit:
-        test["correct"] = [a == b for a,b in zip(list(y_true), y_)]
-        test["prediction"] = y_
-        test[["ID", class_attributes, "prediction"]][test.correct == False]
-        ##
+        ### Ausgabe der Frame-Nummern und ID der falsch klassifizierten samples:
+        class_attributes = ["B,W"]
+        y_ = clf.predict(samples.drop(columns=(["Belag","Witterung","Belag,Witterung","ID","frame"])))      
+        test["prediction"] = [class_names[int(y__)] for y__ in y_]
+        test = test.sort_values("ID")
+        falses = test[class_attributes] != test["prediction"]
+        test["frame_length"] = test.ID.apply(lambda id: len(sdl.features[sdl.features.ID == id]))
+        test[["ID","frame","frame_length"]][falses].values[:]
 
-    from base.base_data_loader import BaseDataLoader
-    import warnings
-    import random
-    import os
-    import pandas as pd
-    import numpy as np
-    import librosa
-    from utils.config import process_config
-    from utils.dirs import listdir
-    import utils.utils as utils
-    import matplotlib.pyplot as plt
-    import soundfile as sf
-    from scipy.io import wavfile
+        ###
+        import seaborn as sns
+        sns.distplot(test.apply(lambda row: row["frame"]/row["frame_length"], axis=1))
+        plt.xlabel("frame-number / frame_length")
+        plt.title("Distribitution of false classification over frame position")
+        plt.show()
+        ### 
 
-    ## testing
-    from multiprocessing import Pool
+    if a == 8:
+        # Ausgabe der Frame-Nummern der falsch klassifizierten samples um zu kontrollieren, ob es auffälligkeiten gibt:
 
-    sdl.createFeatureFrame("D:\Programmierung\Repositories\Wabco\Datastore\Acoustical")
+        print("Loading Data...")
+        sdl = SoundDataLoader("configs/wabco.json")
 
-    #def multi(b):
-    #    features = pd.DataFrame()
-    #    for f in b[2]:
-    #        print(f)
-    #        newFeatures = b[0].extractFeaturesFromAudio(os.path.join(b[1],f))
-    #        newFeatures.insert(0, "frame", range(len(newFeatures)))
-    #        newFeatures.insert(0, "ID", f.split("_")[0])
-    #        features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)
-        
-    #    return features
-
-    #def createFeatureFrame(sdl, path):
-    #    pcs = 6
-    #    actualDataFolder = "test"
-    #    files = listdir(os.path.join(path,actualDataFolder))
-    #    print(files)
-    #    fileCount = len(files)
-    #    chunks = [files[i::pcs] for i in range(pcs)]
-
-    #    pool = Pool(processes=pcs)
-    #    test = [[sdl, os.path.join(path,actualDataFolder), chunk] for chunk in chunks]
-
-    #    result = pool.map(multi, test)
+        print("Filtering Attributes...")
+        currentDrive, path = os.path.splitdrive(os.getcwd())
+        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+        # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
+        #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
+        samples = sdl.getFeaturesWithLabel(attributes,labels)
+               
+        if useOthersAsUnknown:
+            print("Renaming and loading outfiltered data as unknown...")
+            ####
+            ## Nicht verwendete Soundfiles benutzen als "Unbekannt":
+            #notUsedSamples = pd.concat([sdl.features,samples]).drop_duplicates(keep=False)
+            asUnknownSamples = sdl.getFeaturesWithLabel(unknownAttributes,unknownLabels)
+            changeIDs = asUnknownSamples.ID.unique()
+            for attribute in attributes:
+                sdl.changeLabel_ofIDs(changeIDs, attribute, "unknown-"+attribute)
+            samples = pd.concat([samples, asUnknownSamples])
+            ####
     
-    #    return result
+        # Ausgleichen der Anzahl an samples der jeweiligen Klasse und aufteilen in Trainings- und Testdatensätze
+        print("Equalizing data and splitting in training- and test-data...")
+        if ID is None:
+            train, test = sdl.equalize(samples, class_attributes, randomize = True, split_train_test=0.7)
+        else:
+            if not samples.ID.isin(ID).any():
+                samples = pd.concat([samples, sdl.features[sdl.features.ID.isin(ID)]])
+            train = sdl.equalize(samples, class_attributes, randomize = True, split_train_test = None)
+            test = train[train.ID.isin(ID)]
+            train = train.drop(test.index.values)
+        
+    
+        class_attributes = ",".join(class_attributes)
+        classes_list, class_names = sdl.Attr_to_class(train,class_attributes)
 
-    #if __name__ ==  '__main__':
-    #    t = createFeatureFrame(sdl, "D:\\Programmierung\\Repositories\\Wabco\\Datastore\\Acoustical\\")
-    #    print(len(t))
-    #    together = pd.concat(t, ignore_index=True)
-    #    print(together, len(together))
-    #    print(together.shape)
+        if useClassifierID is None:
+            print("Creating classification-Pipeline...")
+            clf = make_pipeline(StandardScaler(), PCA(n_components=30), SVC(decision_function_shape="ovo", probability=True))
+    
+            print("Training Classifier...")
+            clf.fit(train.drop(columns=(identification+[class_attributes])).values, classes_list)
+        
+            if saveClassifier:
+                print("Saving classifier...")
+                # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
+                from sklearn.externals import joblib
+                joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+        else:
+            from sklearn.externals import joblib
+            if useClassifierID == -1:
+                useClassifierID = getHighestFilenumber("classifier")
+            print("Loading Classifier-ID", useClassifierID)
+            clf = joblib.load(os.path.join("classifier", str(useClassifierID)+".pkl"))
+
+        # predict class and probability
+        print("Predicting Test-Data...")
+        if ID is None:
+            p_samples = test.drop(columns=(identification+[class_attributes])).values
+        else:
+            p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
+        prediction = clf.predict(p_samples)
+        probability = clf.predict_proba(p_samples)
+        # /predict class and probability
+
+        # Confusion Matrix
+        y_ = [class_names[int(p)] for p in prediction]
+        if ID is None:
+            y_true = test[class_attributes].values
+        else:
+            y_true = test[test.ID == ID][class_attributes].values
+        cnf_matrix = confusion_matrix(y_true, y_, class_names)
+        plt.figure()
+        sdl.plot_confusion_matrix(cnf_matrix, classes=class_names,title='Confusion matrix, without normalization')
+        plt.figure()
+        sdl.plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,title='Normalized confusion matrix')
+        # /confusion matrix
+
+        # plot prediction boxplot
+        from math import ceil
+        fig,axs = plt.subplots(ceil(len(class_names)/2),2)
+        ai2 = 0
+        for ai, cn in enumerate(class_names):
+            #print(ai%2,int(ai2), cn)
+            idx = np.where(y_true==cn)
+            actualClassPrediction = probability[idx]
+            axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = class_names)
+            axs[int(ai2), ai%2].set_title(cn)
+            ai2+=0.5
+        plt.show()

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>97f7e5de-0ca2-4308-8581-5a248704acd7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>main.py</StartupFile>
+    <StartupFile>Testground.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -21,7 +21,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Acoustical.py" />
     <Compile Include="base\base_data_loader.py" />
     <Compile Include="base\base_model.py" />
     <Compile Include="base\base_trainer.py" />
@@ -41,6 +40,7 @@
     <Folder Include="base\" />
     <Folder Include="configs\" />
     <Folder Include="data_loader\" />
+    <Folder Include="classifier\" />
     <Folder Include="utils\" />
   </ItemGroup>
   <ItemGroup>

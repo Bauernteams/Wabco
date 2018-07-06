@@ -23,8 +23,11 @@ class SoundDataLoader(BaseDataLoader):
         if isinstance(config, str):
             config = process_config(config)
         super(SoundDataLoader, self).__init__(config)
+
+        # get the absolute path of the datastore
         currentDrive, path = os.path.splitdrive(os.getcwd())
         dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+
         self.attributes = pd.read_csv(os.path.join(dataFolder, self.config.testplan), sep=";")
         if not os.path.isfile(os.path.join(dataFolder, self.config.features)):
             print("features.csv not found...")
@@ -112,6 +115,7 @@ class SoundDataLoader(BaseDataLoader):
             
             class_counts = frame[combinedAttributes].value_counts()
             min_classCounts = min(class_counts)
+            min_className = class_counts.index[np.where(class_counts == min_classCounts)]
             df_temp = pd.DataFrame()
             
             for cA in frame[combinedAttributes].unique():
@@ -119,11 +123,11 @@ class SoundDataLoader(BaseDataLoader):
                 # equalize IDs
                 quot = min_classCounts/actualFrames.shape[0]
                 if quot <= 0.1:
-                    print("\n","#" * 100)
-                    print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+                    print("\n","#" * 50)
+                    print("Warning: The class(",cA,") has more than 10x the amount of frames availiable than the class with the lowest frameset (", min_className, actualFrames.shape[0],"/",min_classCounts,").")
                     print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
-                    print("#" * 100,"\n")
+                    print("#" * 50,"\n")
                 IDs = actualFrames.ID.unique()
                 if randomize:
                     df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID.isin(IDs)].sample(int(round(quot * actualFrames[actualFrames.ID.isin(IDs)].shape[0])))], 
@@ -146,7 +150,7 @@ class SoundDataLoader(BaseDataLoader):
                 quot = min_classCounts/actualFrames.shape[0]
                 if quot <= 0.1:
                     print("\n","#" * 100)
-                    print("Warning: The class(",cn,") has more than 10x the amount of frames availiable than the class with the lowest frameset (",actualFrames.shape[0],"/",min_classCounts,").")
+                    print("Warning: The class(",cn,") has more than 10x the amount of frames availiable than the class with the lowest frameset (", min_className,actualFrames.shape[0],"/",min_classCounts,").")
                     print("This might lead to an unbalanced representation of the IDs in the training/test seperation.")
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cn,").")
                     print("#" * 100,"\n")
@@ -171,7 +175,7 @@ class SoundDataLoader(BaseDataLoader):
             return train, test
 
         else:
-            return df_temp.reset_index()#.drop(columns = attribute),_
+            return df_temp
     
     def bad_equalize(self, frame, attribute="Belag", randomize=False, split_train_test=None):
         # Vorteil von split_train_test in sdl equalize: jede ID wird abhängig von dem equalizen gesplittet.
@@ -344,6 +348,9 @@ class SoundDataLoader(BaseDataLoader):
     def getAttributeToFeatures(self, frame, attribute):
         return frame.ID.apply(lambda x: self.attributes[attribute][x])
 
+    def changeLabel_ofIDs(self, IDs, attribute, label):
+        self.attributes[attribute][self.attributes.ID.isin(IDs)] = label
+
     def extractFeaturesFromAudio(self, audio, n_fft = 16384, sr=48000):
         #stft = librosa.stft(audio,n_fft=n_fft)
         #freqs = np.abs(stft)
@@ -400,9 +407,10 @@ class SoundDataLoader(BaseDataLoader):
         pool = Pool(processes=pcs)
 
         result = pool.map(self.combineExtractedFeaturesFromAudio, [[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
+        #result = self.combineExtractedFeaturesFromAudio([[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
 
         features = pd.concat(result, ignore_index=True)
-        features.to_csv(os.path.join(path, self.config.features), sep=";")
+        features.to_csv(os.path.join(path, self.config.features), sep=";", index=False)
 
     def combineExtractedFeaturesFromAudio(self, input):
         # Zusammenführen von mehreren Feature-Frames.
@@ -415,14 +423,19 @@ class SoundDataLoader(BaseDataLoader):
             newFeatures = self.extractFeaturesFromAudio(os.path.join(path,f))
             newFeatures.insert(0, "frame", range(len(newFeatures)))
             newFeatures.insert(0, "ID", f.split("_")[0])
-            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)        
+            features = pd.concat((features, newFeatures), ignore_index=True)#, copy=False)
         return features
 
     def loadRawWithID(self,ID):
-        path = "experiments\\Wabco\\data\\raw\\1_set"
+        currentDrive, path = os.path.splitdrive(os.getcwd())
+        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+        path = os.path.join(dataFolder, "1_set")
         files = listdir(path)
         files_ID_dict = dict(zip([int(ID) for ID in [f.split("_")[0] for f in files]],files))
-        return librosa.load(os.path.join(path,files_ID_dict[ID]))
+        return sf.read(os.path.join(path,files_ID_dict[ID]))
+
+    def loadRawWithPath(self, path):
+        return sf.read(path)
 
     def Attr_to_class(self, frame, label="Belag"):
         if isinstance(label, list) and len(label) > 1:
