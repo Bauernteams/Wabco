@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>97f7e5de-0ca2-4308-8581-5a248704acd7</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>Testground.py</StartupFile>
+    <StartupFile>main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -30,6 +30,9 @@
     <Compile Include="data_loader\sound.py" />
     <Compile Include="data_loader\__init__.py" />
     <Compile Include="main.py" />
+    <Compile Include="scripts.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Testground.py" />
     <Compile Include="utils\config.py" />
     <Compile Include="utils\dirs.py" />

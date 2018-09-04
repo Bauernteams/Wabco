@@ -15,22 +15,22 @@ from sklearn.svm import SVC
 from math import ceil
 
 ################################################################################################################################
-ID = None # None für alle
+ID = None#[644,646,648,650,652,654] # None für alle
 useOthersAsUnknown = False
-saveClassifier = False
+saveClassifier = True
 useClassifierID = None
 
 attributes = ["Belag", "Witterung","Geschwindigkeit","Mikrofon","Stoerung","Reifen","Reifendruck","Position","Fahrbahn"]
 
 labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]      # Belag
-        ,["trocken","nass"]#,"feucht","nass/feucht]                                 # Witterung
+        ,["nass","trocken"]#,"feucht","nass/feucht]                                 # Witterung
         ,["80 km/h","50 km/h","30 km/h","40 km/h"]#, "0 km/h", '20 km/h', 'x km/h', # Geschwindigkeit
             # '80 - 0 km/h', "0 - 80 km/h",'50 - 0 km/h', '40 - 0 km/h']         
-        ,['PCB - Kein','PCB - Kondom', 'PCB - Puschel']#]                           # Mikrofon
-        ,None#['keine', 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
+        ,['PCB - Kein','PCB - Kondom', 'PCB - Puschel']#, "Phillips"]#                     # Mikrofon
+        ,['keine']#, 'LKW/Sattelzug parallel', 'Reisszwecke im Profil',          # Stoerung
             # 'CAN aus', 'Beregnung an']
         ,None#['Goodyear', 'Michelin']#, 'XYZ']                                     # Reifen
-        ,['8 bar', '9 bar', '6 bar']#]                                              # Reifendruck
+        ,None#['8 bar', '9 bar', '6 bar']#]                                         # Reifendruck
         ,None#[1,2,3,4]                                                             # Position
         ,['Oval']#, 'ESC-Kreisel', 'Fahrdynamikflaeche']                            # Fahrbahn
         ]
@@ -38,7 +38,9 @@ labels = [["Beton","Blaubasalt","Asphalt","Stahlbahn"]#,"Schlechtwegestrecke"]  
 unknownAttributes   = ["Geschwindigkeit"]   # Attribute, in denen sich Unknown Labels befinden
 unknownLabels       = ["0 km/h"]            # Diese Labels werden als Unknown klassifiziert
 
-class_attributes = ["Belag","Witterung"]
+dropIDs = None#[546]#None
+
+class_attributes = ["Belag","Witterung"]#
 #class_attributes = ["Reifen","Reifendruck"]
 #class_attributes = ["Mikrofon"]
 identification = ["ID","frame"]
@@ -54,6 +56,9 @@ if __name__ ==  '__main__':
     # SVM fitting und prediction nach Aufteilung der csv-feature tabelle in trainings und testdaten
     #sdl.loadFeature_csv(dataFolder+"/processed/librosaFeatures.csv")
     samples = sdl.getFeaturesWithLabel(attributes,labels)
+
+    if dropIDs is not None:
+        samples = samples[samples.ID != dropIDs]
                
     if useOthersAsUnknown:
         print("Renaming and loading outfiltered data as unknown...")
@@ -94,6 +99,9 @@ if __name__ ==  '__main__':
             # TODO: in eine .txt-Datei die Paramter zu dem gespeicherten Classifier einfügen
             from sklearn.externals import joblib
             joblib.dump(clf, os.path.join("classifier",str(getHighestFilenumber("classifier")+1)+".pkl"))
+            import json
+            with open(os.path.join("classifier",str(getHighestFilenumber("classifier"))+".json"),"w") as file:
+                json.dump({"class_names": class_names, "labels":labels, "class_attributes":class_attributes}, file)
     else:
         from sklearn.externals import joblib
         if useClassifierID == -1:
@@ -106,7 +114,7 @@ if __name__ ==  '__main__':
     if ID is None:
         p_samples = test.drop(columns=(identification+[class_attributes])).values
     else:
-        p_samples = test[test["ID"] == ID].drop(columns=(identification+[class_attributes])).values
+        p_samples = test[test.ID.isin(ID)].drop(columns=(identification+[class_attributes])).values
     prediction = clf.predict(p_samples)
     probability = clf.predict_proba(p_samples)
     # /predict class and probability
@@ -116,7 +124,7 @@ if __name__ ==  '__main__':
     if ID is None:
         y_true = test[class_attributes].values
     else:
-        y_true = test[test.ID == ID][class_attributes].values
+        y_true = test[test.ID.isin(ID)][class_attributes].values
     cnf_matrix = confusion_matrix(y_true, y_, class_names)
     plt.figure()
     sdl.plot_confusion_matrix(cnf_matrix, classes=class_names,title='Confusion matrix, without normalization')
@@ -124,14 +132,14 @@ if __name__ ==  '__main__':
     sdl.plot_confusion_matrix(cnf_matrix, classes=class_names, normalize=True,title='Normalized confusion matrix')
     # /confusion matrix
 
-    # plot prediction boxplot
-    fig,axs = plt.subplots(ceil(len(class_names)/2),2)
-    ai2 = 0
-    for ai, cn in enumerate(class_names):
-        #print(ai%2,int(ai2), cn)
-        idx = np.where(y_true==cn)
-        actualClassPrediction = probability[idx]
-        axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = class_names)
-        axs[int(ai2), ai%2].set_title(cn)
-        ai2+=0.5
+    ## plot prediction boxplot
+    #fig,axs = plt.subplots(ceil(len(class_names)/2),2)
+    #ai2 = 0
+    #for ai, cn in enumerate(class_names):
+    #    #print(ai%2,int(ai2), cn)
+    #    idx = np.where(y_true==cn)
+    #    actualClassPrediction = probability[idx]
+    #    axs[int(ai2), ai%2].boxplot(actualClassPrediction, labels = class_names)
+    #    axs[int(ai2), ai%2].set_title(cn)
+    #    ai2+=0.5
     plt.show()

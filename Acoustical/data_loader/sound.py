@@ -26,35 +26,36 @@ class SoundDataLoader(BaseDataLoader):
 
         # get the absolute path of the datastore
         currentDrive, path = os.path.splitdrive(os.getcwd())
-        dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
+        self.dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
 
-        self.attributes = pd.read_csv(os.path.join(dataFolder, self.config.testplan), sep=";")
-        if not os.path.isfile(os.path.join(dataFolder, self.config.features)):
+        self.attributes = pd.read_csv(os.path.join(self.dataFolder, self.config.testplan), sep=";")
+        if not os.path.isfile(os.path.join(self.dataFolder, self.config.features)):
             print("features.csv not found...")
             print("\nLoading features...")
-            self.createFeatureFrame(dataFolder)
+            self.createFeatureFrame(self.dataFolder)
 
-        self.features = pd.read_csv(os.path.join(dataFolder, self.config.features), sep=";")
+        else:
+            self.features = pd.read_csv(os.path.join(self.dataFolder, self.config.features), sep=";")
+        self.data = None
         pd.options.mode.chained_assignment = None  # default='warn'
             
-    def loadFeature_fromCSV(self, filePath):
+    def loadFeature_csv(self, path):
         """ Load the extracted Features from a .csv-File to the class attribute self.features. """
-
-        fileType = ".csv"
-        if not filePath.endswith(fileType):
-            print("File %s is NOT a %s file!" % filePath,fileType)
+        dataType = ".csv"
+        if not path.endswith(dataType):
+            print("File %s is NOT a %s file!" % path,dataType)
             exit(0)
-        filePath = os.path.normpath(filePath)
-        filePath_split = filePath.split(os.sep)
-        fileID = filePath_split[-1].split("_")[0]
-        features_temp_DF = pd.read_csv(filePath,";")
-        if not "frame" in features_temp_DF.columns:
-            features_temp_DF = features_temp_DF.rename(columns={"Unnamed: 0":"frame"})
+        path = os.path.normpath(path)
+        pathSplit = path.split(os.sep)
+        fileID = pathSplit[-1].split("_")[0]
+        df_temp = pd.read_csv(path,";")
+        if not "frame" in df_temp.columns:
+            df_temp = df_temp.rename(columns={"Unnamed: 0":"frame"})
         else:
-            features_temp_DF = features_temp_DF.drop(columns=["Unnamed: 0"])
-        self.features = utils.pdStackWithNone(self.features,features_temp_DF,fileID)
+            df_temp = df_temp.drop(columns=["Unnamed: 0"])
+        self.features = utils.pdStackWithNone(self.features,df_temp,fileID)
 
-    def getFeaturesWithLabel(self, attributes, labels):
+    def getFeaturesWithLabel(self, attribute, label):
         """ Returns the Pandas-Frame with the features corresponding to the given attributes and labels. 
             
         Parameters
@@ -63,22 +64,26 @@ class SoundDataLoader(BaseDataLoader):
         label     : string or list, same length as ''attribute'' if list
         """
 
-        # Umwandeln zu einer Liste um sowohl einzelne als auch mehrere Einträge bearbeiten zu können.
-        if not isinstance(attributes,list):
-            attributes = [attributes]
-        if not isinstance(labels,list):
-            labels = [labels]
-        
+
+        if not isinstance(attribute,list):
+            attribute = [attribute]
+        if not isinstance(label,list):
+            label = [label]
+
+        ID_list = None
         temp_list = None
-        for attribute,label in zip(attributes,labels):
-            # sichergehen, dass label eine Liste ist, auch wenn nur ein Eintrag vorhanden ist, damit der restliche Code funktioniert.
-            if not isinstance(label, list):
-                label = [label]
-
-            if label[0] is None: # None heißt alle Labels dieses Attributs
-                label = self.attributes[attribute].unique()
-
-            ID_list = self.attributes.ID[self.attributes[attribute].isin(label)].values
+        temp_list2 = None
+        for a,l in zip(attribute,label):
+            if not isinstance(l, list):
+                l = [l]
+            if l[0] is None:
+                l = self.attributes[a].unique()
+            ID_list = None
+            for ll in l:
+                if ID_list is None:
+                    ID_list = self.attributes.ID[self.attributes[a] == ll].values
+                else:
+                    ID_list = np.concatenate((ID_list,self.attributes.ID[self.attributes[a] == ll].values))
             if temp_list is None:
                 temp_list = ID_list
             else:
@@ -101,7 +106,7 @@ class SoundDataLoader(BaseDataLoader):
             combinedAttributes = ",".join(att)
             if len(attributes) > 2:
                 frame2 = self.equalize(frame, att,randomize=randomize, split_train_test=None)
-                return self.equalize(frame2, [combinedAttributes] + attributes[2:], randomize=randomize, split_train_test=split_train_test)
+                return self.equalize(frame2, [combinedAttributes] + attributes[2:], randomize=randomize, split_train_test=split_train_test) ###
 
             # alle Attribute in die Featureliste einfügen
             for A in att:
@@ -129,12 +134,13 @@ class SoundDataLoader(BaseDataLoader):
                     print("Consider setting other Filter settings to reduce the amount of frames of the class(",cA,").")
                     print("#" * 50,"\n")
                 IDs = actualFrames.ID.unique()
-                if randomize:
-                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID.isin(IDs)].sample(int(round(quot * actualFrames[actualFrames.ID.isin(IDs)].shape[0])))], 
-                                        ignore_index=True)
-                else:
-                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.idxmax.isin(IDs)].head(min_classCounts)], 
-                                        ignore_index=True)
+                for id in IDs:
+                    if randomize:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(round(quot * actualFrames[actualFrames.ID == id].shape[0])))], 
+                                            ignore_index=True)
+                    else:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                            ignore_index=True)
 
         else: # ...ist nur ein attribute
             df_temp = pd.DataFrame()            
@@ -156,20 +162,26 @@ class SoundDataLoader(BaseDataLoader):
                     print("#" * 100,"\n")
 
                 IDs = actualFrames.ID.unique()
-                if randomize:
-                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID.isin(IDs)].sample(int(round(quot * actualFrames[actualFrames.ID.isin(IDs)].shape[0])))], 
-                                        ignore_index=True)
-                else:
-                    df_temp = pd.concat([df_temp, actualFrames[actualFrames.idxmax.isin(IDs)].head(min_classCounts)], 
-                                        ignore_index=True)
+                for id in IDs:
+                    if randomize:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].sample(int(quot * actualFrames[actualFrames.ID == id].shape[0]))], 
+                                            ignore_index=True)
+                    else:
+                        df_temp = pd.concat([df_temp, actualFrames[actualFrames.ID == id].head(min_classCounts)], 
+                                            ignore_index=True)
 
         if split_train_test is not None:
             if split_train_test <= 0 or split_train_test > 1:
                 raise ValueError("split_train_test has to be a value (float) between 0 and 1")
             
             from sklearn.model_selection import train_test_split
+            train = pd.DataFrame()
+            test = pd.DataFrame()
             IDs = df_temp.ID.unique()
-            train, test = train_test_split(df_temp[df_temp.ID.isin(IDs)], test_size=(1-split_train_test) )
+            for id in IDs:
+                tr, te = train_test_split(df_temp[df_temp.ID == id], test_size=(1-split_train_test) )
+                train = pd.concat((train, tr), ignore_index = True)
+                test = pd.concat((test, te), ignore_index = True)
                 
             #return train.reset_index(), test.reset_index()
             return train, test
@@ -351,30 +363,81 @@ class SoundDataLoader(BaseDataLoader):
     def changeLabel_ofIDs(self, IDs, attribute, label):
         self.attributes[attribute][self.attributes.ID.isin(IDs)] = label
 
-    def extractFeaturesFromAudio(self, audio, n_fft = 16384, sr=48000):
-        #stft = librosa.stft(audio,n_fft=n_fft)
-        #freqs = np.abs(stft)
+    def extractFeaturesFromAudio_old(self, audio, n_fft = 16384, sr=48000, hop_length = None, drop_beg=2, drop_end=-2):
+        if hop_length is None:
+            hop_length = int(n_fft/4)
+        if not isinstance(hop_length, int):
+            hop_length = int(hop_length)
         if isinstance(audio, str):
             audio, sr = librosa.load(audio, sr=None)
 
-        chroma_stft      = librosa.feature.chroma_stft(audio, sr = sr, n_fft=16384, hop_length=int(n_fft/4))
-        chroma_cqt      = librosa.feature.chroma_cqt(audio, sr = sr, hop_length=int(n_fft/4)) 
-        chroma_cens      = librosa.feature.chroma_cens(audio, sr = sr, hop_length=int(n_fft/4)) 
-        mel         = librosa.feature.melspectrogram(audio,sr, n_fft=n_fft, hop_length=int(n_fft/4))
-        mfcc         = librosa.feature.mfcc(audio,sr) #
-        rmse        = librosa.feature.rmse(audio, frame_length=n_fft, hop_length=int(n_fft/4))
-        centroid    = librosa.feature.spectral_centroid(audio,sr, n_fft=n_fft, hop_length=int(n_fft/4))
-        bandwidth   = librosa.feature.spectral_bandwidth(audio,sr, n_fft=n_fft, hop_length=int(n_fft/4))
-        contrast    = librosa.feature.spectral_contrast(audio,sr, n_fft=n_fft, hop_length=int(n_fft/4))
-        flatness    = librosa.feature.spectral_flatness(audio, n_fft=n_fft, hop_length=int(n_fft/4))
-        rolloff     = librosa.feature.spectral_rolloff(audio,sr,n_fft=n_fft,hop_length=int(n_fft/4))
-        poly_features     = librosa.feature.poly_features(audio,sr,n_fft=n_fft,hop_length=int(n_fft/4)) 
-        tonnetz     = librosa.feature.tonnetz(audio, sr)
-        zero_crossing_rate = librosa.feature.zero_crossing_rate(audio, frame_length=n_fft,hop_length=int(n_fft/4)) 
+        chroma_stft      = librosa.feature.chroma_stft(audio, sr = sr, n_fft=16384, hop_length=hop_length)[:,drop_beg:drop_end]
+        chroma_cqt      = librosa.feature.chroma_cqt(audio, sr = sr, hop_length=hop_length)[:,drop_beg:drop_end]
+        chroma_cens      = librosa.feature.chroma_cens(audio, sr = sr, hop_length=hop_length)[:,drop_beg:drop_end]
+        mel         = librosa.feature.melspectrogram(audio,sr, n_fft=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        mfcc         = librosa.feature.mfcc(audio,sr)[:,drop_beg:drop_end] #
+        rmse        = librosa.feature.rmse(audio, frame_length=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        centroid    = librosa.feature.spectral_centroid(audio,sr, n_fft=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        bandwidth   = librosa.feature.spectral_bandwidth(audio,sr, n_fft=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        contrast    = librosa.feature.spectral_contrast(audio,sr, n_fft=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        flatness    = librosa.feature.spectral_flatness(audio, n_fft=n_fft, hop_length=hop_length)[:,drop_beg:drop_end]
+        rolloff     = librosa.feature.spectral_rolloff(audio,sr,n_fft=n_fft,hop_length=hop_length)[:,drop_beg:drop_end]
+        poly_features     = librosa.feature.poly_features(audio,sr,n_fft=n_fft,hop_length=hop_length)[:,drop_beg:drop_end]
+        #tonnetz     = librosa.feature.tonnetz(audio, sr)[:,drop_beg:drop_end]
+        zero_crossing_rate = librosa.feature.zero_crossing_rate(audio, frame_length=n_fft,hop_length=hop_length)[:,drop_beg:drop_end]
         return pd.DataFrame(np.concatenate((chroma_stft.T,chroma_cqt.T,chroma_cens.T,mel.T,mfcc.T[:chroma_stft.shape[1]],rmse.T,centroid.T,bandwidth.T,
                                             contrast.T,flatness.T,rolloff.T,
                                             #poly_features.T,
-                                            tonnetz.T[:chroma_stft.shape[1]], zero_crossing_rate.T),axis=1)
+                                            #tonnetz.T[:chroma_stft.shape[1]], 
+                                            zero_crossing_rate.T),axis=1),
+                                           None,
+                                           ["chroma_stft_"+str(i) for i in range(chroma_stft.shape[0])]+
+                                           ["chroma_cqt_"+str(i) for i in range(chroma_cqt.shape[0])]+
+                                           ["chroma_cens_"+str(i) for i in range(chroma_cens.shape[0])]+
+                                           ["mel_"+str(i) for i in range(mel.shape[0])]+
+                                           ["mfcc_"+str(i) for i in range(mfcc.shape[0])]+
+                                           ["rmse_"+str(i) for i in range(rmse.shape[0])]+
+                                           ["centroid_"+str(i) for i in range(centroid.shape[0])]+
+                                           ["bandwidth_"+str(i) for i in range(bandwidth.shape[0])]+
+                                           ["contrast_"+str(i) for i in range(contrast.shape[0])]+
+                                           ["flatness_"+str(i) for i in range(flatness.shape[0])]+
+                                           ["rolloff_"+str(i) for i in range(rolloff.shape[0])]+
+                                           #["poly_features_"+str(i) for i in range(poly_features.shape[0])]+
+                                           #["tonnetz_"+str(i) for i in range(tonnetz.shape[0])]+
+                                           ["zero_crossing_rate_"+str(i) for i in range(zero_crossing_rate.shape[0])])
+
+    def extractFeaturesFromAudio(self, audio, n_fft = 16384, sr=48000, hop_length = None, drop_beg=2, drop_end=-2):
+        if hop_length is None:
+            hop_length = int(n_fft/4)
+        if not isinstance(hop_length, int):
+            hop_length = int(hop_length)
+        if isinstance(audio, str):
+            audio, sr = librosa.load(audio, sr=None)
+
+        stft = librosa.stft(audio, n_fft, hop_length, center=False)
+        S = np.abs(stft)
+        drop_beg=int(n_fft/hop_length/2)
+        drop_end=-int(n_fft/hop_length/2)
+
+        chroma_stft      = librosa.feature.chroma_stft(None, sr = sr, S=S**2, n_fft=n_fft, hop_length=hop_length)
+        chroma_cqt      = librosa.feature.chroma_cqt(audio, sr = sr, hop_length=hop_length)[:,drop_beg:drop_end]
+        chroma_cens      = librosa.feature.chroma_cens(audio, sr = sr, hop_length=hop_length)[:,drop_beg:drop_end]
+        mel         = librosa.feature.melspectrogram(None, sr, S=S**2, n_fft=n_fft, hop_length=hop_length)
+        mfcc         = librosa.feature.mfcc(None, sr, S=S) #?
+        rmse        = librosa.feature.rmse(None, S=S, frame_length=n_fft, hop_length=hop_length, center=False)
+        centroid    = librosa.feature.spectral_centroid(None, sr, S=S, n_fft=n_fft, hop_length=hop_length)
+        bandwidth   = librosa.feature.spectral_bandwidth(None, sr, S=S, n_fft=n_fft, hop_length=hop_length)
+        contrast    = librosa.feature.spectral_contrast(None, sr, S=S, n_fft=n_fft, hop_length=hop_length)
+        flatness    = librosa.feature.spectral_flatness(None, S=S, n_fft=n_fft, hop_length=hop_length)
+        rolloff     = librosa.feature.spectral_rolloff(None, sr, S=S, n_fft=n_fft,hop_length=hop_length)
+        #poly_features     = librosa.feature.poly_features(None, sr, S=S, n_fft=n_fft,hop_length=hop_length)[:,drop_beg:drop_end]
+        #tonnetz     = librosa.feature.tonnetz(audio, sr)[:,drop_beg:drop_end]
+        zero_crossing_rate = librosa.feature.zero_crossing_rate(audio, frame_length=n_fft,hop_length=hop_length, center=False)
+        return pd.DataFrame(np.concatenate((chroma_stft.T,chroma_cqt.T,chroma_cens.T,mel.T,mfcc.T,rmse.T,centroid.T,bandwidth.T,
+                                            contrast.T,flatness.T,rolloff.T,
+                                            #poly_features.T,
+                                            #tonnetz.T[:chroma_stft.shape[1]], 
+                                            zero_crossing_rate.T),axis=1)
                                            ,None,
                                            ["chroma_stft_"+str(i) for i in range(chroma_stft.shape[0])]+
                                            ["chroma_cqt_"+str(i) for i in range(chroma_cqt.shape[0])]+
@@ -388,7 +451,7 @@ class SoundDataLoader(BaseDataLoader):
                                            ["flatness_"+str(i) for i in range(flatness.shape[0])]+
                                            ["rolloff_"+str(i) for i in range(rolloff.shape[0])]+
                                            #["poly_features_"+str(i) for i in range(poly_features.shape[0])]+
-                                           ["tonnetz_"+str(i) for i in range(tonnetz.shape[0])]+
+                                           #["tonnetz_"+str(i) for i in range(tonnetz.shape[0])]+
                                            ["zero_crossing_rate_"+str(i) for i in range(zero_crossing_rate.shape[0])])
 
     def combineAttributes(self, frame, attributes, sep = ","):
@@ -409,9 +472,46 @@ class SoundDataLoader(BaseDataLoader):
         result = pool.map(self.combineExtractedFeaturesFromAudio, [[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
         #result = self.combineExtractedFeaturesFromAudio([[os.path.join(path,actualDataFolder), chunk] for chunk in chunks])
 
-        features = pd.concat(result, ignore_index=True)
-        features.to_csv(os.path.join(path, self.config.features), sep=";", index=False)
+        self.features = pd.concat(result, ignore_index=True)
+        self.features.to_csv(os.path.join(path, self.config.features), sep=";", index=False)
 
+    def appendFeatureFrame(self):
+        # Look for new IDs inside the actualDataFolder which are not existant in the feature frame
+        actualDataFolder = "1_set"
+        files = listdir(os.path.join(self.dataFolder,actualDataFolder))
+        
+        IDtoFileDict = {}
+        IDs = []
+        for f in files:
+            ID = int(f.split("_")[0])
+            IDs.append(ID)
+            IDtoFileDict[ID] = f
+        
+        existingIDs = self.features.ID.unique()
+
+        newIDs = []
+        for ID in IDs:
+            if ID not in existingIDs:
+                newIDs.append(ID)
+
+        newFiles = []
+        for ID in newIDs:
+            newFiles.append(IDtoFileDict[ID])
+        print("Found", len(newFiles), "new IDs...")
+        
+        print("Extracting features from new IDs...")
+        pcs = cpu_count()-1
+        print("Using",pcs,"Cores....")
+        chunks = [newFiles[i::pcs] for i in range(pcs)]
+
+        pool = Pool(processes=pcs)
+
+        result = pool.map(self.combineExtractedFeaturesFromAudio, [[os.path.join(self.dataFolder,actualDataFolder), chunk] for chunk in chunks])
+        results = pd.concat(result, ignore_index=True)
+
+        self.features = pd.concat((self.features,results), ignore_index=True)
+        self.features.to_csv(os.path.join(self.dataFolder, self.config.features), sep=";", index=False)
+        
     def combineExtractedFeaturesFromAudio(self, input):
         # Zusammenführen von mehreren Feature-Frames.
         # Funktion wurde implementiert um das Zusammenzuführen mehrkernfähig zu machen (Siehe self.createFeatureFrame)
@@ -427,6 +527,7 @@ class SoundDataLoader(BaseDataLoader):
         return features
 
     def loadRawWithID(self,ID):
+        #TODO: Nicht nach "_" suchen sondern nach der tatsächlichen ID
         currentDrive, path = os.path.splitdrive(os.getcwd())
         dataFolder = os.path.join(currentDrive,os.path.sep.join(path.split(os.path.sep)[:-1]),"Datastore","Acoustical")
         path = os.path.join(dataFolder, "1_set")
