@@ -1,527 +1,697 @@
-ID;Nr;Messtag;Name;Fahrbahn;Belag;Manoever;Geschwindigkeit;Fahrzeug;Reifen;Reifendruck;Witterung;Stoerung;Mikrofon;Position
-0;0;1;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-1;0;1;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-2;1;1;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-3;1;1;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-4;2;1;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-5;2;1;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-6;3;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-7;3;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-8;4;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-9;4;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-10;5;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-11;5;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-12;6;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-13;6;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-14;7;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-15;7;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-16;8;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-17;8;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-18;9;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-19;9;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-20;10;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-21;10;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-22;11;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-23;11;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-24;12;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-25;12;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-26;13;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-27;13;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-28;14;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-29;14;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-30;15;1;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-31;15;1;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-32;16;1;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-33;16;1;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-34;17;1;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-35;17;1;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-36;18;1;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-37;18;1;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-38;19;1;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-39;19;1;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-40;20;1;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-41;20;1;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-42;21;1;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-43;21;1;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-44;22;1;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-45;22;1;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-46;23;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-47;23;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-48;24;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-49;24;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-50;25;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-51;25;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-52;26;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
-53;26;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
-54;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
-55;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
-56;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
-57;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
-58;28;1;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
-59;28;1;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
-60;29;1;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
-61;29;1;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
-62;30;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;1
-63;30;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;2
-64;31;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;1
-65;31;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;2
-66;32;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;1
-67;32;1;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;trocken;keine;PCB - Kein;2
-68;33;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
-69;33;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
-70;34;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
-71;34;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
-72;35;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
-73;35;1;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
-74;36;1;Fremdkoerper im Reifen;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;Reisszwecke im Profil;PCB - Kein;1
-75;36;1;Fremdkoerper im Reifen;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;Reisszwecke im Profil;PCB - Kein;2
-76;37;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-77;37;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-78;38;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-79;38;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-80;39;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-81;39;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-82;40;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-83;40;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-84;41;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-85;41;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-86;42;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-87;42;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-88;43;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-89;43;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-90;44;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-91;44;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-92;45;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-93;45;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-94;46;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-95;46;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-96;47;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-97;47;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-98;48;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-99;48;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-100;49;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-101;49;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-102;50;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-103;50;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-104;51;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-105;51;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-106;52;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-107;52;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-108;53;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-109;53;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-110;54;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-111;54;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-112;55;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-113;55;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-114;56;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-115;56;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-116;57;2;Beschleunigungsfahrt feucht;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-117;57;2;Beschleunigungsfahrt feucht;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-118;58;2;Rollen feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-119;58;2;Rollen feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-120;59;2;Motor aus feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-121;59;2;Motor aus feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-122;60;2;Teilbremsung Asphalt feucht;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-123;60;2;Teilbremsung Asphalt feucht;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-124;61;2;Teilbremsung Blaubasalt feucht;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-125;61;2;Teilbremsung Blaubasalt feucht;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-126;62;2;Teilbremsung Stahl feucht;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-127;62;2;Teilbremsung Stahl feucht;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-128;63;2;Vollbremsung Asphalt feucht;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-129;63;2;Vollbremsung Asphalt feucht;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-130;64;2;Vollbremsung Blaubasalt feucht;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-131;64;2;Vollbremsung Blaubasalt feucht;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-132;65;2;Vollbremsung Stahl feucht;Oval;Stahlbahn;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-133;65;2;Vollbremsung Stahl feucht;Oval;Stahlbahn;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-134;66;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-135;66;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-136;67;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-137;67;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-138;68;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-139;68;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-140;69;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
-141;69;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
-142;70;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
-143;70;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
-144;71;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
-145;71;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
-146;72;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
-147;72;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
-148;73;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
-149;73;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
-150;74;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
-151;74;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
-152;75;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
-153;75;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
-154;76;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
-155;76;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
-156;77;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
-157;77;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
-158;78;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
-159;78;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
-160;79;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-161;79;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-162;80;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-163;80;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-164;81;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-165;81;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-166;82;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-167;82;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-168;83;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-169;83;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-170;84;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-171;84;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-172;85;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-173;85;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-174;86;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-175;86;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-176;87;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-177;87;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-178;88;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-179;88;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-180;89;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-181;89;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-182;90;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-183;90;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-184;91;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-185;91;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-186;92;2;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-187;92;2;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-188;93;2;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-189;93;2;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-190;94;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-191;94;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-192;95;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-193;95;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-194;96;2;Teilbremsung Stahl nass;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-195;96;2;Teilbremsung Stahl nass;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-196;97;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-197;97;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-198;98;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-199;98;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-200;99;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-201;99;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-202;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-203;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-204;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-205;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-206;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-207;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-208;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-209;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-210;102;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-211;102;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-212;103;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-213;103;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-214;104;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
-215;104;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
-216;105;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
-217;105;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
-218;106;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
-219;106;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
-220;107;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
-221;107;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
-222;108;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
-223;108;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
-224;109;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
-225;109;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
-226;110;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
-227;110;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
-228;111;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
-229;111;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
-230;112;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
-231;112;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
-232;113;2;Schlechtwegestrecke;Oval;Schlechtwegestrecke;Konstantfahrt;20 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-233;113;2;Schlechtwegestrecke;Oval;Schlechtwegestrecke;Konstantfahrt;20 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-234;114;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-235;114;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-236;115;1;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-237;115;1;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-238;116;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-239;116;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-240;117;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;LKW/Sattelzug parallel;PCB - Kein;1
-241;117;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;LKW/Sattelzug parallel;PCB - Kein;2
-242;118;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-243;118;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-244;119;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
-245;119;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
-246;120;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-247;120;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-248;121;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-249;121;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-250;122;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-251;122;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-252;123;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-253;123;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-254;124;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-255;124;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-256;125;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-257;125;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-258;126;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-259;126;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-260;127;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-261;127;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-262;128;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-263;128;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-264;129;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-265;129;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-266;130;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-267;130;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-268;131;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-269;131;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-270;132;2;Rollen Getriebeschalter neutral nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-271;132;2;Rollen Getriebeschalter neutral nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-272;133;2;Rolen Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-273;133;2;Rolen Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-274;134;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-275;134;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-276;135;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-277;135;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-278;136;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-279;136;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-280;137;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-281;137;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-282;138;2;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-283;138;2;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-284;139;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-285;139;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-286;140;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-287;140;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-288;141;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-289;141;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-290;142;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-291;142;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-292;143;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-293;143;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-294;144;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-295;144;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-296;145;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-297;145;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-298;146;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
-299;146;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
-300;147;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
-301;147;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
-302;148;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
-303;148;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
-304;149;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
-305;149;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
-306;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-307;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-308;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
-309;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
-310;151;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
-311;151;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
-312;152;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
-313;152;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
-314;153;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
-315;153;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
-316;154;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
-317;154;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
-318;155;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
-319;155;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
-320;156;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
-321;156;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
-322;157;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-323;157;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-324;158;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-325;158;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-326;159;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;CAN aus;PCB - Puschel;1
-327;159;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;CAN aus;PCB - Puschel;2
-328;160;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-329;160;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-330;161;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-331;161;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-332;162;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-333;162;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-334;163;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-335;163;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-336;164;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-337;164;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-338;165;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-339;165;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-340;166;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-341;166;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-342;167;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-343;167;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-344;168;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-345;168;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-346;169;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-347;169;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-348;170;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-349;170;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-350;171;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-351;171;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-352;172;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-353;172;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-354;173;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-355;173;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-356;174;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-357;174;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-358;175;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-359;175;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-360;176;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-361;176;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-362;177;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-363;177;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-364;178;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-365;178;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-366;179;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-367;179;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-368;180;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-369;180;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-370;181;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-371;181;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-372;182;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-373;182;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-374;183;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-375;183;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-376;184;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-377;184;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-378;185;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-379;185;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-380;186;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-381;186;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-382;187;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
-383;187;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
-384;188;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-385;188;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-386;189;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-387;189;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-388;190;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-389;190;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-390;191;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-391;191;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-392;192;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-393;192;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-394;193;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-395;193;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-396;194;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-397;194;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-398;195;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-399;195;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-400;196;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-401;196;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-402;197;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-403;197;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-404;198;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-405;198;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-406;199;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-407;199;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-408;200;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-409;200;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-410;201;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-411;201;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-412;202;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
-413;202;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
-414;203;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
-415;203;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
-416;204;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
-417;204;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
-418;205;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-419;205;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-420;206;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-421;206;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-422;207;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-423;207;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-424;208;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-425;208;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-426;209;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-427;209;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-428;210;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-429;210;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-430;211;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-431;211;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-432;212;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-433;212;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-434;213;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-435;213;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-436;214;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-437;214;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-438;215;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-439;215;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-440;216;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-441;216;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-442;217;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
-443;217;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
-444;218;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-445;218;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-446;219;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-447;219;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-448;220;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-449;220;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-450;221;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-451;221;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-452;222;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-453;222;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-454;223;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-455;223;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-456;224;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-457;224;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-458;225;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-459;225;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-460;226;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-461;226;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-462;227;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-463;227;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-464;228;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-465;228;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-466;229;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-467;229;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-468;230;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-469;230;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-470;231;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-471;231;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-472;232;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-473;232;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-474;233;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-475;233;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-476;234;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-477;234;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-478;235;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
-479;235;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
-480;236;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
-481;236;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
-482;237;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
-483;237;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
-484;238;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
-485;238;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
-486;239;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-487;239;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-488;240;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-489;240;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-490;241;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-491;241;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-492;242;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-493;242;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-494;243;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-495;243;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-496;244;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-497;244;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-498;245;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-499;245;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-500;246;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-501;246;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-502;247;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-503;247;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-504;248;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-505;248;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-506;249;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-507;249;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-508;250;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-509;250;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-510;251;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-511;251;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-512;252;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-513;252;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-514;253;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-515;253;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-516;254;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-517;254;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-518;255;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-519;255;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-520;256;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-521;256;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-522;257;3;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-523;257;3;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
-524;258;3;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
-525;258;3;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+;ID;Nr;Messtag;Name;Fahrbahn;Belag;Manoever;Geschwindigkeit;Fahrzeug;Reifen;Reifendruck;Witterung;Stoerung;Mikrofon;Position
+0;0;0;1;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+1;1;0;1;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+2;2;1;1;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+3;3;1;1;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+4;4;2;1;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+5;5;2;1;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+6;6;3;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+7;7;3;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+8;8;4;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+9;9;4;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+10;10;5;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+11;11;5;1;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+12;12;6;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+13;13;6;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+14;14;7;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+15;15;7;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+16;16;8;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+17;17;8;1;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+18;18;9;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+19;19;9;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+20;20;10;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+21;21;10;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+22;22;11;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+23;23;11;1;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+24;24;12;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+25;25;12;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+26;26;13;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+27;27;13;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+28;28;14;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+29;29;14;1;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+30;30;15;1;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+31;31;15;1;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+32;32;16;1;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+33;33;16;1;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+34;34;17;1;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+35;35;17;1;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+36;36;18;1;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+37;37;18;1;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+38;38;19;1;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+39;39;19;1;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+40;40;20;1;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+41;41;20;1;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+42;42;21;1;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+43;43;21;1;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+44;44;22;1;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+45;45;22;1;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+46;46;23;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+47;47;23;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+48;48;24;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+49;49;24;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+50;50;25;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+51;51;25;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+52;52;26;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;1
+53;53;26;1;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kein;2
+54;54;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
+55;55;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
+56;56;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
+57;57;27;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
+58;58;28;1;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
+59;59;28;1;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
+60;60;29;1;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;1
+61;61;29;1;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass/feucht;LKW/Sattelzug parallel;PCB - Kein;2
+62;62;30;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;1
+63;63;30;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;2
+64;64;31;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;1
+65;65;31;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;2
+66;66;32;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;1
+67;67;32;5;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Kein;2
+68;68;33;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
+69;69;33;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
+70;70;34;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
+71;71;34;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
+72;72;35;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
+73;73;35;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
+74;74;36;1;Fremdkoerper im Reifen;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;Reisszwecke im Profil;PCB - Kein;1
+75;75;36;1;Fremdkoerper im Reifen;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;Reisszwecke im Profil;PCB - Kein;2
+76;76;37;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+77;77;37;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+78;78;38;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+79;79;38;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+80;80;39;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+81;81;39;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+82;82;40;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+83;83;40;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+84;84;41;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+85;85;41;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+86;86;42;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+87;87;42;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+88;88;43;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+89;89;43;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+90;90;44;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+91;91;44;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+92;92;45;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+93;93;45;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+94;94;46;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+95;95;46;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+96;96;47;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+97;97;47;2;Konstantfahrt Asphalt feucht;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+98;98;48;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+99;99;48;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+100;100;49;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+101;101;49;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+102;102;50;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+103;103;50;2;Konstantfahrt Beton feucht;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+104;104;51;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+105;105;51;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+106;106;52;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+107;107;52;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+108;108;53;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+109;109;53;2;Konstantfahrt Blaubasalt feucht;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+110;110;54;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+111;111;54;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+112;112;55;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+113;113;55;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+114;114;56;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+115;115;56;2;Konstantfahrt Stahl feucht;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+116;116;57;2;Beschleunigungsfahrt feucht;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+117;117;57;2;Beschleunigungsfahrt feucht;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+118;118;58;2;Rollen feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+119;119;58;2;Rollen feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+120;120;59;2;Motor aus feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+121;121;59;2;Motor aus feucht;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+122;122;60;2;Teilbremsung Asphalt feucht;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+123;123;60;2;Teilbremsung Asphalt feucht;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+124;124;61;2;Teilbremsung Blaubasalt feucht;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+125;125;61;2;Teilbremsung Blaubasalt feucht;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+126;126;62;2;Teilbremsung Stahl feucht;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+127;127;62;2;Teilbremsung Stahl feucht;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+128;128;63;2;Vollbremsung Asphalt feucht;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+129;129;63;2;Vollbremsung Asphalt feucht;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+130;130;64;2;Vollbremsung Blaubasalt feucht;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+131;131;64;2;Vollbremsung Blaubasalt feucht;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+132;132;65;2;Vollbremsung Stahl feucht;Oval;Stahlbahn;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+133;133;65;2;Vollbremsung Stahl feucht;Oval;Stahlbahn;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+134;134;66;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+135;135;66;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+136;136;67;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+137;137;67;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+138;138;68;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+139;139;68;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+140;140;69;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;1
+141;141;69;2;Kurvenfahrt ESC-Kreisel feucht;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;feucht;keine;PCB - Kein;2
+142;142;70;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
+143;143;70;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
+144;144;71;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
+145;145;71;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
+146;146;72;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;1
+147;147;72;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;feucht;LKW/Sattelzug parallel;PCB - Kein;2
+148;148;73;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
+149;149;73;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
+150;150;74;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
+151;151;74;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
+152;152;75;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;1
+153;153;75;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;feucht;keine;PCB - Kein;2
+154;154;76;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
+155;155;76;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
+156;156;77;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
+157;157;77;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
+158;158;78;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;1
+159;159;78;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;feucht;keine;PCB - Kein;2
+160;160;79;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+161;161;79;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+162;162;80;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+163;163;80;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+164;164;81;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+165;165;81;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+166;166;82;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+167;167;82;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+168;168;83;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+169;169;83;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+170;170;84;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+171;171;84;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+172;172;85;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+173;173;85;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+174;174;86;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+175;175;86;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+176;176;87;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+177;177;87;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+178;178;88;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+179;179;88;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+180;180;89;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+181;181;89;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+182;182;90;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+183;183;90;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+184;184;91;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+185;185;91;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+186;186;92;2;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+187;187;92;2;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+188;188;93;2;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+189;189;93;2;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+190;190;94;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+191;191;94;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+192;192;95;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+193;193;95;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+194;194;96;2;Teilbremsung Stahl nass;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+195;195;96;2;Teilbremsung Stahl nass;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+196;196;97;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+197;197;97;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+198;198;98;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+199;199;98;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+200;200;99;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+201;201;99;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+202;202;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+203;203;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+204;204;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+205;205;100;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+206;206;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+207;207;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+208;208;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+209;209;101;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+210;210;102;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+211;211;102;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+212;212;103;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+213;213;103;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+214;214;104;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
+215;215;104;2;Parallelfahrt;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
+216;216;105;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
+217;217;105;2;Ueberholvorgang passiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
+218;218;106;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;1
+219;219;106;2;Ueberholvorgang aktiv;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;LKW/Sattelzug parallel;PCB - Kein;2
+220;220;107;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
+221;221;107;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
+222;222;108;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
+223;223;108;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
+224;224;109;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;1
+225;225;109;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;9 bar;nass;keine;PCB - Kein;2
+226;226;110;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
+227;227;110;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
+228;228;111;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
+229;229;111;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
+230;230;112;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;1
+231;231;112;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;nass;keine;PCB - Kein;2
+232;232;113;2;Schlechtwegestrecke;Oval;Schlechtwegestrecke;Konstantfahrt;20 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+233;233;113;2;Schlechtwegestrecke;Oval;Schlechtwegestrecke;Konstantfahrt;20 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+234;234;114;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+235;235;114;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+236;236;115;1;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+237;237;115;1;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+238;238;116;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+239;239;116;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+240;240;117;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;LKW/Sattelzug parallel;PCB - Kein;1
+241;241;117;1;Parallelfahrt;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;LKW/Sattelzug parallel;PCB - Kein;2
+242;242;118;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+243;243;118;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+244;244;119;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;1
+245;245;119;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kein;2
+246;246;120;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+247;247;120;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+248;248;121;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+249;249;121;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+250;250;122;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+251;251;122;2;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+252;252;123;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+253;253;123;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+254;254;124;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+255;255;124;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+256;256;125;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+257;257;125;2;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+258;258;126;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+259;259;126;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+260;260;127;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+261;261;127;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+262;262;128;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+263;263;128;2;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+264;264;129;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+265;265;129;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+266;266;130;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+267;267;130;2;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+268;268;131;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+269;269;131;2;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+270;270;132;2;Rollen Getriebeschalter neutral nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+271;271;132;2;Rollen Getriebeschalter neutral nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+272;272;133;2;Rolen Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+273;273;133;2;Rolen Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+274;274;134;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+275;275;134;2;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+276;276;135;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+277;277;135;2;Teilbremsung Blaubasalt nass;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+278;278;136;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+279;279;136;2;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+280;280;137;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+281;281;137;2;Vollbremsung Blaubasalt nass;Oval;Blaubasalt;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+282;282;138;2;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+283;283;138;2;Teilbremsung Beton nass;Oval;Beton;Teillastbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+284;284;139;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+285;285;139;2;Vollbremsung Beton nass;Oval;Beton;Vollbremsung;80 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+286;286;140;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+287;287;140;2;Vollbremsung Stahl nass;Oval;Stahlbahn;Vollbremsung;40 - 0 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+288;288;141;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+289;289;141;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+290;290;142;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+291;291;142;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+292;292;143;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+293;293;143;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+294;294;144;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+295;295;144;2;Kurvenfahrt ESC-Kreisel nass;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+296;296;145;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+297;297;145;2;Freie Fahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+298;298;146;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
+299;299;146;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
+300;300;147;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
+301;301;147;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
+302;302;148;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
+303;303;148;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
+304;304;149;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;1
+305;305;149;2;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;XYZ;8 bar;nass;keine;PCB - Kein;2
+306;306;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+307;307;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+308;308;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;1
+309;309;150;2;Freie Fahrt mit Fremdkoerper im Reifen;Fahrdynamikflaeche;Asphalt;Konstantfahrt;x km/h;W75;Michelin;8 bar;nass;keine;PCB - Kein;2
+310;310;151;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
+311;311;151;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
+312;312;152;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
+313;313;152;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
+314;314;153;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;1
+315;315;153;2;Reifendruck hoch;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;9 bar;nass;keine;PCB - Kein;2
+316;316;154;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
+317;317;154;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
+318;318;155;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
+319;319;155;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
+320;320;156;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;1
+321;321;156;2;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Michelin;6 bar;nass;keine;PCB - Kein;2
+322;322;157;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+323;323;157;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+324;324;158;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+325;325;158;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+326;326;159;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;CAN aus;PCB - Puschel;1
+327;327;159;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;CAN aus;PCB - Puschel;2
+328;328;160;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+329;329;160;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+330;330;161;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+331;331;161;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+332;332;162;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+333;333;162;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+334;334;163;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+335;335;163;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+336;336;164;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+337;337;164;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+338;338;165;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+339;339;165;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+340;340;166;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+341;341;166;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+342;342;167;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+343;343;167;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+344;344;168;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+345;345;168;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+346;346;169;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+347;347;169;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+348;348;170;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+349;349;170;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+350;350;171;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+351;351;171;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+352;352;172;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+353;353;172;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+354;354;173;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+355;355;173;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+356;356;174;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+357;357;174;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+358;358;175;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+359;359;175;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+360;360;176;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+361;361;176;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+362;362;177;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+363;363;177;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+364;364;178;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+365;365;178;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+366;366;179;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+367;367;179;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+368;368;180;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+369;369;180;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+370;370;181;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+371;371;181;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+372;372;182;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+373;373;182;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+374;374;183;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+375;375;183;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+376;376;184;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+377;377;184;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+378;378;185;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+379;379;185;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+380;380;186;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+381;381;186;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+382;382;187;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;1
+383;383;187;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Puschel;2
+384;384;188;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+385;385;188;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+386;386;189;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+387;387;189;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+388;388;190;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+389;389;190;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+390;390;191;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+391;391;191;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+392;392;192;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+393;393;192;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+394;394;193;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+395;395;193;3;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+396;396;194;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+397;397;194;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+398;398;195;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+399;399;195;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+400;400;196;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+401;401;196;3;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+402;402;197;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+403;403;197;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+404;404;198;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+405;405;198;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+406;406;199;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+407;407;199;3;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+408;408;200;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+409;409;200;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+410;410;201;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+411;411;201;3;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+412;412;202;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
+413;413;202;3;Beschleunigungsfahrt trocken;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
+414;414;203;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
+415;415;203;3;Rollen trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
+416;416;204;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;1
+417;417;204;3;Motor aus trocken;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;trocken;Beregnung an;PCB - Kondom;2
+418;418;205;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+419;419;205;3;Teilbremsung Asphalt trocken;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+420;420;206;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+421;421;206;3;Teilbremsung Blaubasalt trocken;Oval;Blaubasalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+422;422;207;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+423;423;207;3;Teilbremsung Stahl trocken;Oval;Stahlbahn;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+424;424;208;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+425;425;208;3;Vollbremsung Asphalt trocken;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+426;426;209;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+427;427;209;3;Vollbremsung Blaubasalt trocken;Oval;Blaubasalt;Vollbremsung;50 - 0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+428;428;210;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+429;429;210;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+430;430;211;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+431;431;211;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+432;432;212;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+433;433;212;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+434;434;213;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+435;435;213;3;Kurvenfahrt ESC-Kreisel trocken;ESC-Kreisel;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+436;436;214;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+437;437;214;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+438;438;215;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+439;439;215;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+440;440;216;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+441;441;216;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+442;442;217;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;1
+443;443;217;3;Kurvenfahrt Fahrdynamikflaeche;Fahrdynamikflaeche;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;2
+444;444;218;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+445;445;218;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+446;446;219;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+447;447;219;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+448;448;220;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+449;449;220;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+450;450;221;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+451;451;221;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+452;452;222;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+453;453;222;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+454;454;223;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+455;455;223;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+456;456;224;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+457;457;224;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+458;458;225;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+459;459;225;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+460;460;226;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+461;461;226;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+462;462;227;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+463;463;227;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+464;464;228;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+465;465;228;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+466;466;229;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+467;467;229;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+468;468;230;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+469;469;230;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+470;470;231;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+471;471;231;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+472;472;232;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+473;473;232;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+474;474;233;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+475;475;233;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+476;476;234;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+477;477;234;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+478;478;235;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;1
+479;479;235;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;2
+480;480;236;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
+481;481;236;3;Stillstand Motor aus;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
+482;482;237;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
+483;483;237;3;Stillstand Leerlauf;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
+484;484;238;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;3
+485;485;238;3;Stillstand Drehzahlerhoehung;Oval;Asphalt;Stillstand;0 km/h;W75;Goodyear;8 bar;trocken;keine;PCB - Kondom;4
+486;486;239;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+487;487;239;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+488;488;240;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+489;489;240;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+490;490;241;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+491;491;241;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+492;492;242;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+493;493;242;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+494;494;243;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+495;495;243;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+496;496;244;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+497;497;244;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+498;498;245;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+499;499;245;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+500;500;246;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+501;501;246;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+502;502;247;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+503;503;247;3;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+504;504;248;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+505;505;248;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+506;506;249;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+507;507;249;3;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+508;508;250;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+509;509;250;3;Beschleunigungsfahrt nass;Oval;Asphalt;Beschleunigung;0 - 80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+510;510;251;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+511;511;251;3;Rollen nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+512;512;252;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+513;513;252;3;Motor aus nass;Oval;Asphalt;Rollen;80 - X km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+514;514;253;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+515;515;253;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+516;516;254;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+517;517;254;3;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+518;518;255;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+519;519;255;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+520;520;256;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+521;521;256;3;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+522;522;257;3;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+523;523;257;3;Teilbremsung Asphalt nass;Oval;Asphalt;Teillastbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+524;524;258;3;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;3
+525;525;258;3;Vollbremsung Asphalt nass;Oval;Asphalt;Vollbremsung;80 - 0 km/h;W75;Goodyear;8 bar;nass;keine;PCB - Kondom;4
+526;526;30;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+527;527;31;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+528;528;32;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+529;529;33;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;6 bar;trocken;keine;Phillips;1
+530;530;34;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;6 bar;trocken;keine;Phillips;1
+531;531;35;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;Phillips;1
+532;532;35;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;Phillips;1
+533;533;259;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+534;534;259;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+535;535;259;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+536;536;260;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+537;537;260;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+538;538;260;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+539;539;261;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+540;540;261;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+541;541;261;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+542;542;262;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+543;543;262;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+544;544;262;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+545;545;263;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+546;546;263;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+547;547;263;4;Konstantfahrt Asphalt trocken;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+548;548;264;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+549;549;264;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+550;550;264;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+551;551;265;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+552;552;265;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+553;553;265;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+554;554;266;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+555;555;266;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+556;556;266;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+557;557;267;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+558;558;267;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+559;559;267;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+560;560;268;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+561;561;268;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+562;562;268;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+563;563;269;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+564;564;269;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+565;565;269;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+566;566;269;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+567;567;269;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+568;568;270;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+569;569;270;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+570;570;270;4;Konstantfahrt Beton trocken;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+571;571;271;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+572;572;271;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+573;573;271;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+574;574;272;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+575;575;272;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+576;576;272;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+577;577;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+578;578;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+579;579;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+580;580;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+581;581;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+582;582;273;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+583;583;274;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+584;584;274;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+585;585;274;4;Konstantfahrt Blaubasalt trocken;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+586;586;275;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+587;587;275;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+588;588;275;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+589;589;275;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+590;590;275;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+591;591;276;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+592;592;276;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+593;593;276;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+594;594;277;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+595;595;277;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+596;596;277;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+597;597;278;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+598;598;278;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+599;599;278;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+600;600;279;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+601;601;279;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+602;602;279;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+603;603;280;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;1
+604;604;280;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;PCB - Puschel;2
+605;605;280;4;Konstantfahrt Stahl trocken;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear;8,7 bar;trocken;keine;Phillips;1
+606;606;284;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Asphalt);PCB - Kein;1
+607;607;284;4;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;2
+608;608;285;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Asphalt);PCB - Kein;1
+609;609;285;4;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;2
+610;610;285;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Asphalt);PCB - Kein;1
+611;611;285;4;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;2
+612;612;286;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Asphalt);PCB - Kein;1
+613;613;286;4;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;2
+614;614;287;4;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;1
+615;615;287;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Beton);PCB - Kein;2
+616;616;288;4;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;1
+617;617;288;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Beton);PCB - Kein;2
+618;618;289;4;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Blaubasalt);PCB - Kein;1
+619;619;289;4;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;mu-split (Beton);PCB - Kein;2
+620;620;290;4;Wippfahrt;Oval;Beton;Wippfahrt;x km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;keine;PCB - Kein;1
+621;621;290;4;Wippfahrt;Oval;Blaubasalt;Wippfahrt;x km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;feucht;keine;PCB - Kein;2
+622;622;291;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+623;623;291;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+624;624;292;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+625;625;292;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+626;626;293;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+627;627;293;4;Konstantfahrt Asphalt nass;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+628;628;294;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+629;629;294;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+630;630;295;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+631;631;295;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+632;632;296;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+633;633;296;4;Konstantfahrt Beton nass;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+634;634;297;4;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+635;635;297;4;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+636;636;298;4;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+637;637;298;4;Konstantfahrt Blaubasalt nass;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+638;638;299;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+639;639;299;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+640;640;300;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+641;641;300;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+642;642;301;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+643;643;301;4;Konstantfahrt Stahl nass;Oval;Stahlbahn;Konstantfahrt;40 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;2
+644;644;304;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Asphalt);PCB - Kein;1
+645;645;304;5;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;5
+646;646;304;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Asphalt);PCB - Kein;1
+647;647;304;5;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;5
+648;648;305;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Asphalt);PCB - Kein;1
+649;649;305;5;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;5
+650;650;306;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Asphalt);PCB - Kein;1
+651;651;306;5;Konstantfahrt µ-split;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;5
+652;652;307;5;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;1
+653;653;307;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Beton);PCB - Kein;5
+654;654;308;5;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;1
+655;655;308;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Beton);PCB - Kein;5
+656;656;309;5;Konstantfahrt µ-split;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Blaubasalt);PCB - Kein;1
+657;657;309;5;Konstantfahrt µ-split;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;mu-split (Beton);PCB - Kein;5
+658;658;310;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+659;659;310;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+660;660;311;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+661;661;311;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+662;662;312;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+663;663;312;5;Trailer ohne Fehlstelle;Oval;Asphalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+664;664;313;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+665;665;313;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+666;666;314;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+667;667;314;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+668;668;315;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+669;669;315;5;Trailer ohne Fehlstelle;Oval;Beton;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+670;670;316;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;80 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+671;671;316;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+672;672;317;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;50 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+673;673;317;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+674;674;318;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;30 km/h;W75;Goodyear Marathon LHD II 315/70R22.5 DOT 4311;8,7 bar;nass;keine;PCB - Kein;1
+675;675;318;5;Trailer ohne Fehlstelle;Oval;Blaubasalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;8,5 bar;nass;keine;PCB - Kein;6
+676;676;319;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+677;677;319;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+678;678;320;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+679;679;320;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+680;680;321;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+681;681;321;5;Trailer Reifendruck niedrig ;Oval;Asphalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+682;682;322;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+683;683;322;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+684;684;323;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+685;685;323;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+686;686;324;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+687;687;324;5;Trailer Reifendruck niedrig ;Oval;Beton;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+688;688;325;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+689;689;325;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;80 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+690;690;326;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+691;691;326;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;50 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+692;692;327;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;6
+693;693;327;5;Trailer Reifendruck niedrig ;Oval;Blaubasalt;Konstantfahrt;30 km/h;S20;Michelin XTA2+ Energy 385/65R22.5 DOT 3810;6 bar;feucht;keine;PCB - Kein;7
+694;694;35;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;1
+695;695;35;5;Reifendruck niedrig;Oval;Asphalt;Konstantfahrt;80 km/h;W75;Goodyear;6 bar;trocken;keine;PCB - Kein;2
